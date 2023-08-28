@@ -1,6 +1,23 @@
+import { Variants, motion } from "framer-motion";
 import { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import Balancer from "react-wrap-balancer";
+
+const card_variants: Variants = {
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.3,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      when: "afterChildren",
+    },
+  },
+};
 
 export default function Card({
   title,
@@ -14,12 +31,12 @@ export default function Card({
   large?: boolean;
 }) {
   return (
-    <div
-      className={`relative col-span-1 h-96 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md ${
+    <motion.div
+      variants={card_variants}
+      className={`relative col-span-1 mb-4 h-[200px] overflow-hidden rounded-xl border border-gray-300 bg-gradient-to-br from-stone-100 via-neutral-50 to-blue-100 shadow-md ${
         large ? "md:col-span-2" : ""
       }`}
     >
-      <div className="flex h-60 items-center justify-center">{demo}</div>
       <div className="mx-auto max-w-md text-center">
         <h2 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-xl font-bold text-transparent md:text-3xl md:font-normal">
           <Balancer>{title}</Balancer>
@@ -51,6 +68,6 @@ export default function Card({
           </Balancer>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

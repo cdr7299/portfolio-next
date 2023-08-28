@@ -7,7 +7,7 @@ import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Precedent - Building blocks for your Next.js project",
+  title: "Portfolio - Vineet",
   description:
     "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
   twitter: {
@@ -29,7 +29,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={cx(sfPro.variable, inter.variable)}>
-        <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100" />
+        <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-rose-100 to-cyan-100 dark:bg-slate-700" />
+        {/* <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-950 via-rose-50 to-cyan-900" /> */}
         <Suspense fallback="...">
           {/* @ts-expect-error Server Component */}
           <Nav />
