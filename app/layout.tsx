@@ -7,17 +7,17 @@ import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Precedent - Building blocks for your Next.js project",
-  description:
-    "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
-  twitter: {
-    card: "summary_large_image",
-    title: "Precedent - Building blocks for your Next.js project",
-    description:
-      "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
-    creator: "@steventey",
-  },
-  metadataBase: new URL("https://precedent.dev"),
+  title: "Portfolio - Vineet",
+  description: "to add",
+  // "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: "Precedent - Building blocks for your Next.js project",
+  //   description:
+  //     "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
+  //   creator: "@cdr7299",
+  // },
+  // metadataBase: new URL("https://precedent.dev"),
   themeColor: "#FFF",
 };
 
@@ -29,7 +29,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={cx(sfPro.variable, inter.variable)}>
-        <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100" />
+        <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-rose-100 to-cyan-100 dark:bg-slate-700" />
+        {/* <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-950 via-rose-50 to-cyan-900" /> */}
         <Suspense fallback="...">
           {/* @ts-expect-error Server Component */}
           <Nav />
