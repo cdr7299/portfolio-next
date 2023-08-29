@@ -8,6 +8,7 @@ import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
 import { useEffect, useRef } from "react";
 import Timeline from "../layout/timeline";
 import Card from "../home/card";
+import { EXIT_ANIMATION_DELAY } from "./home.constants";
 
 const education_data = [
   {
@@ -23,6 +24,43 @@ const education_data = [
       "Did bachelors here,Did bachelors hereDid bachelors hereDid bachelors hereDid bachelors hereDid bachelors here",
   },
 ];
+
+const TITLE_VARIANTS = {
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+  hidden: {
+    x: -100,
+    opacity: 0,
+    transition: {
+      delay: EXIT_ANIMATION_DELAY,
+      duration: 0.3,
+    },
+  },
+};
+
+const INTRO_CARD_VARIANTS = {
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    x: 300,
+    transition: {
+      delay: EXIT_ANIMATION_DELAY,
+      duration: 0.6,
+      when: "afterChildren",
+    },
+  },
+};
 
 function Education() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -51,13 +89,13 @@ function Education() {
       animate(
         scope.current,
         { opacity: 0, x: -100 },
-        { delay: 0.1, duration: 0.3 },
+        { delay: EXIT_ANIMATION_DELAY, duration: 0.3 },
       );
     }
   }, [animate, shouldTriggerTimeline, scope]);
 
   return (
-    <div className="flex min-h-[calc(100vh-8rem)] w-full" ref={containerRef}>
+    <div className="flex min-h-[870px] w-full" ref={containerRef}>
       <Timeline
         parentScrollYProgress={scrollYProgress}
         shouldTriggerTimeline={shouldTriggerTimeline}
@@ -66,13 +104,9 @@ function Education() {
       <div className="flex w-5/6 flex-col gap-16 ">
         <div className="w-full font-display text-xl font-bold tracking-[0.01em] drop-shadow-sm md:text-2xl md:leading-[3rem] lg:text-4xl">
           <motion.div
-            style={{ x: 300, opacity: 0 }}
-            animate={inViewObj?.isIntersecting ? { x: 0, opacity: 1 } : ""}
-            transition={{
-              ease: "linear",
-              duration: 0.3,
-            }}
-            // transition={{ type: "inertia" }}
+            initial="hidden"
+            animate={inViewObj?.isIntersecting ? "visible" : "hidden"}
+            variants={INTRO_CARD_VARIANTS}
             className="h-[350px] rounded-2xl bg-gradient-to-br from-purple-100 to-purple-200 p-8"
           >
             <Balancer>
@@ -84,11 +118,9 @@ function Education() {
         </div>
         <div ref={containerRef2}>
           <motion.div
-            style={{ x: -100, opacity: 0 }}
-            animate={shouldTriggerTimeline ? { x: 0, opacity: 1 } : ""}
-            transition={{
-              duration: 0.3,
-            }}
+            initial="hidden"
+            animate={shouldTriggerTimeline ? "visible" : "hidden"}
+            variants={TITLE_VARIANTS}
             className="mb-8 font-display text-xl font-bold tracking-[0.01em] drop-shadow-sm md:text-2xl md:leading-[3rem] lg:text-4xl"
           >
             <Balancer>Education</Balancer>

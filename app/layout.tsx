@@ -5,6 +5,7 @@ import { sfPro, inter } from "./fonts";
 import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
+import styles from "./index.module.css";
 
 export const metadata = {
   title: "Portfolio - Vineet",
