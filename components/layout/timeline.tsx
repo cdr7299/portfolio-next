@@ -1,59 +1,70 @@
 "use client";
 
-import {
-  useScroll,
-  useTransform,
-  motion,
-  useAnimation,
-  MotionValue,
-} from "framer-motion";
+import { useTransform, motion, MotionValue, Variants } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 import Image from "next/image";
-import Balancer from "react-wrap-balancer";
-import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
-import { useEffect, useRef } from "react";
+import styles from "./timeline.module.css";
+
+const timeline_variants: Variants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    y: -100,
+    transition: {
+      when: "afterChildren",
+    },
+  },
+};
 
 function Timeline({
   parentScrollYProgress,
   isParentInView,
+  shouldTriggerTimeline,
 }: {
   parentScrollYProgress: MotionValue<number>;
   isParentInView: boolean;
+  shouldTriggerTimeline: boolean;
 }) {
-  //   const scale = useTransform(scrollYProgress, [0, 1], [0.2, 2]);
-  // console.log("asd", scale);
-
-  //   const containerRef = useRef<HTMLDivElement>(null);
-  //   const inViewObj = useIntersectionObserver(containerRef, { threshold: 0.9 });
+  const scaleY = useTransform(parentScrollYProgress, [0, 1], [0, 700]);
 
   return (
-    <div className="flex w-1/6 flex-col px-8">
-      <Image
-        src="assets/lines-hero-first.svg"
-        height={100}
-        width={700}
-        alt="whoops"
-        className="mt-[-350px] w-[500px] !max-w-none"
-      />
-      <div className="relative">
-        <motion.div
-          //   className="absolute -inset-0.5 h-[40px] w-[40px] rounded-2xl bg-gradient-to-r from-blue-100 to-purple-300 opacity-75 blur"
-          style={{ scale: parentScrollYProgress }}
-        ></motion.div>
-        <GraduationCap
-          className="my-3 ml-1 text-black"
-          color="#000"
-          size={35}
+    <div className="flex w-1/6 flex-col px-4">
+      <motion.div
+        initial="hidden"
+        animate={isParentInView ? "visible" : "hidden"}
+        exit="hidden"
+        variants={timeline_variants}
+      >
+        <Image
+          src="assets/lines-hero-first.svg"
+          height={100}
+          width={500}
+          alt="whoops"
+          className="ml-2 mt-[-350px]  !max-w-[100vw]"
         />
-        <motion.div
-          style={{
-            background:
-              "linear-gradient(#d2a8ff, #a371f7 10%, #196c2e 70%, #2ea043 80%, #56d364) ",
-          }}
-          animate={isParentInView ? { height: 700 } : ""}
-          className="mx-4 w-[5px] rounded"
-        ></motion.div>
-      </div>
+      </motion.div>
+      <motion.div
+        initial="hidden"
+        animate={shouldTriggerTimeline ? "visible" : "hidden"}
+        className="my-4 ml-[-4px] flex h-[55px] w-[55px] items-center justify-center rounded-[60px] border-4 p-2"
+        variants={{
+          visible: { opacity: 1 },
+          hidden: { opacity: 0 },
+        }}
+      >
+        <GraduationCap className="text-black " color="#000" size={35} />
+      </motion.div>
+      <motion.div
+        animate={shouldTriggerTimeline ? { height: 400 } : ""}
+        transition={{ delay: 0.3, duration: 0.6 }}
+        className="mx-5 w-[4px] rounded bg-gradient-to-b from-purple-200 via-emerald-300 to-green-400"
+      ></motion.div>
     </div>
   );
 }
