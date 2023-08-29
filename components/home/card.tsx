@@ -2,6 +2,7 @@ import { Variants, motion } from "framer-motion";
 import { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import Balancer from "react-wrap-balancer";
+import { EXIT_ANIMATION_DELAY } from "./home.constants";
 
 const card_variants: Variants = {
   visible: {
@@ -19,6 +20,7 @@ const card_variants: Variants = {
     x: 300,
     transition: {
       when: "afterChildren",
+      delay: EXIT_ANIMATION_DELAY,
     },
   },
 };

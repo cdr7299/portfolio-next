@@ -5,6 +5,7 @@ import { sfPro, inter } from "./fonts";
 import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
+import styles from "./index.module.css";
 
 export const metadata = {
   title: "Portfolio - Vineet",
@@ -29,6 +30,13 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={cx(sfPro.variable, inter.variable)}>
+        <video
+          className={styles.heroVideoBg}
+          src="assets/heroVideoBg.mp4"
+          muted
+          autoPlay
+          loop
+        ></video>
         <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-rose-100 to-cyan-100 dark:bg-slate-700" />
         {/* <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-950 via-rose-50 to-cyan-900" /> */}
         <Suspense fallback="...">
