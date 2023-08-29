@@ -46,7 +46,7 @@ function Timeline({
           height={100}
           width={500}
           alt="whoops"
-          className="ml-2 mt-[-350px]  !max-w-[100vw]"
+          className="ml-2 mt-[-350px] !max-w-[100vw]"
         />
       </motion.div>
       <motion.div
