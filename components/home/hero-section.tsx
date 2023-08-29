@@ -14,7 +14,7 @@ function HeroSection() {
         className=" ml-2 mt-6 w-full animate-slide-from-left  text-gray-500 opacity-0 md:text-2xl"
         style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}
       >
-        <Balancer>Passionate FrontEnd Engineer.</Balancer>
+        <Balancer> FrontEnd Engineer.</Balancer>
       </p>
       <p
         className="ml-2 mt-6 w-full animate-slide-from-left  text-gray-500 opacity-0 md:text-2xl"
