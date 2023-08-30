@@ -60,7 +60,8 @@ function CodeBody({
                           ? { backgroundColor: item.color }
                           : { backgroundColor: "rgb(22, 27, 34)" }
                       }
-                      transition={{ duration: 0.6 }}
+                      transition={{ duration: 0.3 }}
+                      whileHover={{ color: "#fff" }}
                       className={cx(
                         "ml-2 w-[120px] rounded-t-md py-2 text-center text-sm font-bold leading-5 tracking-normal text-slate-500",
                         {

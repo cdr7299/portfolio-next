@@ -1,11 +1,10 @@
 .codeHeader {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 10%;
   border-bottom: 1px solid;
   border-bottom-color: rgb(48, 54, 61);
-  gap: 250px;
 }
 
 .codeTitle {
@@ -45,7 +44,7 @@
   display: flex;
   flex-direction: column;
   background-color: #161b22;
-  border: 0.1rem solid;
+  border: 0.15rem solid;
   border-color: rgb(48, 54, 61);
   height: 10rem;
   border-radius: 0.5rem;
@@ -66,31 +65,9 @@
   opacity: 0;
   transition: opacity 0.3s;
   background: var(--back, rgb(255, 255, 255, 0.5));
-  filter: blur(60px);
+  filter: blur(80px);
 }
 
 .codeCard:hover::after {
-  opacity: 0.4;
-}
-
-.blob {
-  filter: blur(40px);
-  position: absolute;
-  z-index: -1; /* to keep it at below everything else */
-  top: 0; /* to align it at top */
-  left: 0; /* to align it at left */
-  width: 100px;
-  height: 100px;
-  border-radius: 50%; /* to make it circular */
-}
-
-.fakeBlob {
-  display: hidden;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  opacity: 0.8;
 }

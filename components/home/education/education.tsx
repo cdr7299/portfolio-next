@@ -74,7 +74,7 @@ function Education() {
               initial="hidden"
               animate={shouldTriggerTimeline ? "visible" : "hidden"}
               variants={TITLE_VARIANTS}
-              className="mb-8 font-display text-xl font-bold tracking-[0.01em] drop-shadow-sm md:text-2xl md:leading-[3rem] lg:text-4xl"
+              className="mb-8 mt-2 font-display text-xl font-bold tracking-[0.01em] drop-shadow-sm md:text-2xl md:leading-[3rem] lg:text-4xl"
             >
               <Balancer>Education</Balancer>
             </motion.div>
