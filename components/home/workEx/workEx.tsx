@@ -1,19 +1,7 @@
 "use client";
 
-import {
-  useScroll,
-  useTransform,
-  motion,
-  useAnimate,
-  useMotionValue,
-} from "framer-motion";
-import { GraduationCap } from "lucide-react";
-import Image from "next/image";
-import Balancer from "react-wrap-balancer";
-import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
-import { useEffect, useRef } from "react";
-import Timeline from "../../layout/timeline";
-import Card from "../../home/card";
+
+
 import styles from "./styles.module.css";
 import CodeHeader from "./components/CodeHeader";
 import CodeBody from "./components/CodeBody";

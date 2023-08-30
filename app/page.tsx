@@ -1,12 +1,3 @@
-import Card from "@/components/home/card";
-import Balancer from "react-wrap-balancer";
-import { DEPLOY_URL } from "@/lib/constants";
-import { Github, Twitter } from "@/components/shared/icons";
-import WebVitals from "@/components/home/web-vitals";
-import ComponentGrid from "@/components/home/component-grid";
-import Image from "next/image";
-import { nFormatter } from "@/lib/utils";
-import { Heart } from "lucide-react";
 import HeroSection from "@/components/home/hero-section";
 import Education from "@/components/home/education";
 import WorkEx from "@/components/home/workEx";

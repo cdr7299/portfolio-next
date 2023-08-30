@@ -1,6 +1,6 @@
 "use client";
 
-import { useTransform, motion, MotionValue, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 import Image from "next/image";
 import styles from "./timeline.module.css";

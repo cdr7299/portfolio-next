@@ -1,6 +1,6 @@
 "use client";
 
-import { useScroll, motion, useAnimate } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import Balancer from "react-wrap-balancer";
 import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
 import { useEffect, useRef } from "react";

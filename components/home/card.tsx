@@ -1,13 +1,9 @@
 import { Variants, motion } from "framer-motion";
-import { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import Balancer from "react-wrap-balancer";
 import {
   EXIT_ANIMATION_DELAY,
-  PARLLAX_OFFSET_DOWN,
-  PARLLAX_OFFSET_UP,
 } from "./home.constants";
-import Parallax from "../layout/parllax";
 
 const card_variants: Variants = {
   visible: {

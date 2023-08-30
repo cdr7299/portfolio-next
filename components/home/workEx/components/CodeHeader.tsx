@@ -8,11 +8,7 @@ import {
   RefreshCcw,
 } from "lucide-react";
 import {
-  useScroll,
-  useTransform,
   motion,
-  useAnimate,
-  useMotionValue,
 } from "framer-motion";
 
 const HEADER_VARIANTS = {
@@ -38,7 +34,6 @@ import styles from "./styles.module.css";
 import { useRef } from "react";
 import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
 import { EXIT_ANIMATION_DELAY } from "../../home.constants";
-import Parallax from "@/components/layout/parllax";
 
 function CodeHeader() {
   const containerRef = useRef<HTMLDivElement>(null);
