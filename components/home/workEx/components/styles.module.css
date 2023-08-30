@@ -24,9 +24,10 @@
 .codeBody {
   display: grid;
   grid-gap: 1px;
-  grid-template-columns: 1fr 8fr 4fr;
+  grid-template-columns: 6fr 4fr;
   grid-template-rows: 1fr;
   height: 100%;
+  overflow: hidden;
 }
 
 .codeBodySections {
@@ -34,4 +35,45 @@
   border-collapse: collapse;
   border-right: 1px solid rgb(48, 54, 61);
   /* border-radius: 6px; */
+}
+
+.codeTrigger {
+  background-color: rgb(13, 17, 23);
+}
+
+.codeCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #161b22;
+  border: 1px solid;
+  border-color: rgb(48, 54, 61);
+  height: 12rem;
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.blob {
+  filter: blur(40px);
+  position: absolute;
+  z-index: -1; /* to keep it at below everything else */
+  top: 0; /* to align it at top */
+  left: 0; /* to align it at left */
+  width: 250px;
+  height: 250px;
+  border-radius: 50%; /* to make it circular */
+  background: rgb(255, 255, 255, 0.5);
+}
+
+.fakeBlob {
+  display: hidden;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
 }

@@ -69,6 +69,7 @@ function TimelineStart({
           variants={start_timeline_variants}
         >
           <Image
+            priority
             src="assets/lines-hero-first.svg"
             height={100}
             width={500}

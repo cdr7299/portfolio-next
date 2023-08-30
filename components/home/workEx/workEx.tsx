@@ -1,35 +1,28 @@
 "use client";
 
-
-
 import styles from "./styles.module.css";
 import CodeHeader from "./components/CodeHeader";
 import CodeBody from "./components/CodeBody";
 import Parallax from "@/components/layout/parllax";
 import { PARLLAX_OFFSET_DOWN } from "../home.constants";
+import { useState } from "react";
 
 const work_data = [
   {
-    title: "Tekion.com",
+    title: "Tekion",
+    value: "Tekion.com",
     description:
-      "Did masters here, **Did masters here**Did masters here, **Did masters here**Did masters here, **Did masters here**",
+      "asdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd",
     projects: [
       {
-        project_title: "Myna",
+        project_title: "DMS - F&I",
         description:
           "asdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
         tech_used:
           "asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
       },
       {
-        project_title: "Gan's Landing Pages",
-        description:
-          "asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
-        tech_used:
-          "asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
-      },
-      {
-        project_title: "Internal tools",
+        project_title: "Consumer Repo",
         description:
           "asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
         tech_used:
@@ -38,9 +31,10 @@ const work_data = [
     ],
   },
   {
-    title: "Gan.ai",
+    title: "Gan Studio",
+    value: "Gan.ai",
     description:
-      "Did bachelors here,Did bachelors hereDid bachelors hereDid bachelors hereDid bachelors hereDid bachelors here",
+      " asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd",
     projects: [
       {
         project_title: "Myna",
@@ -68,7 +62,8 @@ const work_data = [
 ];
 
 function WorkEx() {
-  console.log("server");
+  const [selectedTab, setSelectedTab] = useState<string>(work_data[0].value);
+  const selectedTabData = work_data.find((item) => item.value === selectedTab);
   //   const containerRef = useRef<HTMLDivElement>(null);
   //   const containerRef2 = useRef<HTMLDivElement>(null);
   //   const { scrollYProgress } = useScroll({
@@ -104,8 +99,14 @@ function WorkEx() {
     <Parallax offset={PARLLAX_OFFSET_DOWN}>
       <div className={styles.baseContainer}>
         <div className={styles.codeContainer}>
-          <CodeHeader />
-          <CodeBody />
+          <CodeHeader title={selectedTabData?.title || ""} />
+          <CodeBody
+            work_data={work_data}
+            selectedTab={selectedTab}
+            onTabChange={(item: any) => {
+              setSelectedTab(item);
+            }}
+          />
         </div>
         <div className="h-500px"></div>
       </div>
