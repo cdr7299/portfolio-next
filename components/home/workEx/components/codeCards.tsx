@@ -1,4 +1,3 @@
-"use client";
 import styles from "./styles.module.css";
 import Balancer from "react-wrap-balancer";
 import { useEffect, useRef, useState } from "react";
@@ -28,16 +27,16 @@ function CodeCards({
   function mouseMoveEvent(e: MouseEvent) {
     if (containerRef?.current) {
       const { x, y } = containerRef.current.getBoundingClientRect();
-      containerRef.current.style.setProperty("--x", String(e.clientX - x));
-      containerRef.current.style.setProperty("--y", String(e.clientY - y));
+      const offsetXFromCenter = e.clientX - x;
+      const offsetYFromCenter = e.clientY - y;
+      containerRef.current.style.setProperty("--x", String(offsetXFromCenter));
+      containerRef.current.style.setProperty("--y", String(offsetYFromCenter));
       containerRef.current.style.setProperty("--back", accentColor);
-      const offsetXFromCenter = e.clientX - window.innerWidth / 2;
-      const offsetYFromCenter = e.clientY - window.innerHeight / 2;
-      const offsetFactor = 30;
+      const offsetFactor = 40;
       setMouse({
         x: -offsetXFromCenter / offsetFactor,
         y: offsetYFromCenter / offsetFactor,
-        scale: 1.03,
+        scale: 1.05,
         shadow: liftShadow,
       });
     }
@@ -53,27 +52,6 @@ function CodeCards({
       }
     };
   }, []);
-
-  // useEffect(() => {
-  //   const fakeBlobElem = fakeBlobRef.current;
-
-  //   const onMouseMove = (e: MouseEvent) => {
-  //     console.log("run");
-  //     if (fakeBlobElem) {
-  //       const rect = fakeBlobElem.getBoundingClientRect();
-  //       console.log(rect);
-  //       const x = e.clientX - rect.left - rect.width / 2;
-  //       const y = e.clientY - rect.top - rect.height / 2;
-  //       setMouse({ x, y });
-  //       // blobElem.style.transform = `translate(${x}px, ${y}px) scale(1)`;
-  //     }
-  //   };
-  //   window.addEventListener("mousemove", onMouseMove);
-
-  //   return () => {
-  //     window.removeEventListener("mousemove", onMouseMove);
-  //   };
-  // }, []);
 
   return (
     <motion.div

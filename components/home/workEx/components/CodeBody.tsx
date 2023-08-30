@@ -1,4 +1,3 @@
-"use client";
 import styles from "./styles.module.css";
 import * as Tabs from "@radix-ui/react-tabs";
 import cx from "classnames";
@@ -38,7 +37,6 @@ function CodeBody({
     (item: any) => item.value === selectedTab,
   );
   const selectedProject = projects[0].project_title;
-  console.log(selectedProject);
 
   return (
     <div className={styles.codeBody}>
