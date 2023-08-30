@@ -1,8 +1,9 @@
 import { Variants, motion } from "framer-motion";
-import { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import Balancer from "react-wrap-balancer";
-import { EXIT_ANIMATION_DELAY } from "./home.constants";
+import {
+  EXIT_ANIMATION_DELAY,
+} from "./home.constants";
 
 const card_variants: Variants = {
   visible: {
@@ -53,6 +54,7 @@ export default function Card({
             <Balancer>{school}</Balancer>
           </div>
         </div>
+
         <div className="w-1/2">
           <motion.div
             initial="hidden"

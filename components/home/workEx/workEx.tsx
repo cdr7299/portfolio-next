@@ -1,38 +1,74 @@
 "use client";
 
-import {
-  useScroll,
-  useTransform,
-  motion,
-  useAnimate,
-  useMotionValue,
-} from "framer-motion";
-import { GraduationCap, Lock, RefreshCcw } from "lucide-react";
-import Image from "next/image";
-import Balancer from "react-wrap-balancer";
-import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
-import { useEffect, useRef } from "react";
-import Timeline from "../../layout/timeline";
-import Card from "../../home/card";
-import styles from "./styles.module.css";
 
-const education_data = [
+
+import styles from "./styles.module.css";
+import CodeHeader from "./components/CodeHeader";
+import CodeBody from "./components/CodeBody";
+import Parallax from "@/components/layout/parllax";
+import { PARLLAX_OFFSET_DOWN } from "../home.constants";
+
+const work_data = [
   {
-    title: "Master of Engineering",
-    school: "BITS Pilani, Goa Campus",
+    title: "Tekion.com",
     description:
       "Did masters here, **Did masters here**Did masters here, **Did masters here**Did masters here, **Did masters here**",
+    projects: [
+      {
+        project_title: "Myna",
+        description:
+          "asdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
+        tech_used:
+          "asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
+      },
+      {
+        project_title: "Gan's Landing Pages",
+        description:
+          "asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
+        tech_used:
+          "asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
+      },
+      {
+        project_title: "Internal tools",
+        description:
+          "asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
+        tech_used:
+          "asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
+      },
+    ],
   },
   {
-    title: "Bachelor of Engineering",
-    school: "UPES, Dehradun",
+    title: "Gan.ai",
     description:
       "Did bachelors here,Did bachelors hereDid bachelors hereDid bachelors hereDid bachelors hereDid bachelors here",
+    projects: [
+      {
+        project_title: "Myna",
+        description:
+          "asdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
+        tech_used:
+          "asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
+      },
+      {
+        project_title: "Gan's Landing Pages",
+        description:
+          "asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
+        tech_used:
+          "asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
+      },
+      {
+        project_title: "Internal tools",
+        description:
+          "asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
+        tech_used:
+          "asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd asdasdasdasdasdasd ",
+      },
+    ],
   },
 ];
 
 function WorkEx() {
-  const test = useMotionValue(0);
+  console.log("server");
   //   const containerRef = useRef<HTMLDivElement>(null);
   //   const containerRef2 = useRef<HTMLDivElement>(null);
   //   const { scrollYProgress } = useScroll({
@@ -65,20 +101,15 @@ function WorkEx() {
   //   }, [animate, shouldTriggerTimeline, scope]);
 
   return (
-    <div className={styles.baseContainer}>
-      <div className={styles.codeContainer}>
-        <div className={styles.codeHeader}>
-          <div className={`${styles.codeTitle}`}>
-            <Lock size={16} className="text-[#787878]" />
-            <span>my-work-experience.com</span>
-            <RefreshCcw size={16} className="text-[#787878]" />
-          </div>
+    <Parallax offset={PARLLAX_OFFSET_DOWN}>
+      <div className={styles.baseContainer}>
+        <div className={styles.codeContainer}>
+          <CodeHeader />
+          <CodeBody />
         </div>
-        <div className={styles.codeBody}></div>
-        <div></div>
+        <div className="h-500px"></div>
       </div>
-      <div className="h-500px"></div>
-    </div>
+    </Parallax>
   );
 }
 

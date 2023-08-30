@@ -1,3 +1,5 @@
+"use client";
+
 import Balancer from "react-wrap-balancer";
 import { Heart } from "lucide-react";
 
