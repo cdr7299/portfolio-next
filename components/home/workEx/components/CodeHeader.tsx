@@ -39,7 +39,7 @@ function CodeHeader({ title }: { title: string }) {
 
   return (
     <div className={styles.codeHeader}>
-      <div className="flex items-center">
+      <div className="ml-6 flex items-center">
         <ChevronLeft className="text-[#787878]" />
         <ChevronRight className="text-[#787878]" />
       </div>
@@ -64,9 +64,7 @@ function CodeHeader({ title }: { title: string }) {
         </span>
         <RefreshCcw size={16} className="text-[#787878]" />
       </motion.div>
-      <div className="flex pr-4">
-        <Plus className="text-[#787878]" />
-      </div>
+      <Plus className="mr-6 text-[#787878]" />
     </div>
   );
 }

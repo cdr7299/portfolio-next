@@ -14,14 +14,6 @@ export default function NavBar({ session }: { session: Session | null }) {
   return (
     <>
       <SignInModal />
-      {/* <motion.circle
-          cx="50"
-          cy="50"
-          r="30"
-          pathLength="1"
-          className="indicator"
-          style={{ pathLength: scrollXProgress }}
-        /> */}
       <div
         className={`fixed top-0 flex w-full justify-center ${
           scrolled
@@ -29,7 +21,7 @@ export default function NavBar({ session }: { session: Session | null }) {
             : "bg-white/0"
         } z-30 transition-all`}
       >
-        <div className="mx-5 flex h-16 w-full max-w-screen-xl items-center justify-between">
+        <div className="mx-5 flex h-16 w-full items-center justify-between">
           <Link href="/" className="flex items-center font-display text-2xl">
             <Image
               src="/logo.png"
