@@ -9,7 +9,7 @@ import { nFormatter } from "@/lib/utils";
 import { Heart } from "lucide-react";
 import HeroSection from "@/components/home/hero-section";
 import Education from "@/components/home/education";
-import WorkEx from "@/components/home/workEx/workEx";
+import WorkEx from "@/components/home/workEx";
 export default async function Home() {
   // const { stargazers_count: stars } = await fetch(
   //   "https://api.github.com/repos/steven-tey/precedent",

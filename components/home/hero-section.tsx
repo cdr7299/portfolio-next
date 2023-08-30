@@ -1,5 +1,8 @@
+"use client";
+
 import Balancer from "react-wrap-balancer";
 import { Heart } from "lucide-react";
+import Parallax from "../layout/parllax";
 
 function HeroSection() {
   return (
