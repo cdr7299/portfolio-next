@@ -29,7 +29,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={cx(sfPro.variable, inter.variable)}>
-        <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-rose-100 to-cyan-100 dark:bg-slate-700" />
+        <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-100 via-rose-200 to-cyan-200 dark:bg-slate-700" />
         {/* <div className="fixed h-screen w-full bg-slate-950" /> */}
         {/* <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-950 via-rose-50 to-cyan-900" /> */}
         <Suspense fallback="...">
