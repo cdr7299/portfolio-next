@@ -34,12 +34,18 @@ function CodeBody({
   selectedTab: string;
   onTabChange: any;
 }) {
+  const { projects } = work_data.find(
+    (item: any) => item.value === selectedTab,
+  );
+  const selectedProject = projects[0].project_title;
+  console.log(selectedProject);
+
   return (
     <div className={styles.codeBody}>
       <div className={styles.codeBodySections}>
         <Tabs.Root
           defaultValue={selectedTab}
-          className="h-[calc(100%-1.5rem)] py-4"
+          className="h-[calc(100%-1rem)] py-4"
           onValueChange={(arg) => {
             onTabChange(arg);
           }}
@@ -53,12 +59,12 @@ function CodeBody({
                       key={item.title}
                       animate={
                         selectedTab === item.value
-                          ? { backgroundColor: "#0d1117" }
+                          ? { backgroundColor: item.color }
                           : { backgroundColor: "rgb(22, 27, 34)" }
                       }
                       transition={{ duration: 0.6 }}
                       className={cx(
-                        "ml-6 rounded-t-md  px-8 py-2 text-sm font-normal leading-5 tracking-normal text-slate-500",
+                        "ml-2 w-[120px] rounded-t-md py-2 text-center text-sm font-bold leading-5 tracking-normal text-slate-500",
                         {
                           "!text-white": selectedTab === item.value,
                         },
@@ -80,7 +86,7 @@ function CodeBody({
               >
                 <motion.div
                   className="h-full bg-[#0d1117] p-4 text-white"
-                  custom={700}
+                  custom={800}
                   key={item.title}
                   variants={sidebar}
                   animate={selectedTab === item.value ? "open" : "closed"}
@@ -95,12 +101,14 @@ function CodeBody({
                 >
                   <div className="flex flex-col gap-16">
                     {item.description}
-                    <div className="grid grid-cols-2 grid-rows-2 gap-4">
+                    <div className="grid grid-cols-2 grid-rows-2 gap-x-4 gap-y-6">
                       {item.projects.map(
                         ({ project_title }: { project_title: string }) => (
                           <CodeCards
                             key={project_title}
                             projectTitle={project_title}
+                            accentColor={item.color}
+                            isSelected={project_title === selectedProject}
                           />
                         ),
                       )}
