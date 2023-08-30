@@ -1,5 +1,4 @@
 "use client";
-
 import {
   ChevronLeft,
   ChevronRight,
@@ -7,9 +6,12 @@ import {
   Plus,
   RefreshCcw,
 } from "lucide-react";
-import {
-  motion,
-} from "framer-motion";
+import { motion } from "framer-motion";
+
+import styles from "./styles.module.css";
+import { useRef } from "react";
+import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
+import { EXIT_ANIMATION_DELAY } from "../../home.constants";
 
 const HEADER_VARIANTS = {
   visible: {
@@ -30,12 +32,7 @@ const HEADER_VARIANTS = {
   },
 };
 
-import styles from "./styles.module.css";
-import { useRef } from "react";
-import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
-import { EXIT_ANIMATION_DELAY } from "../../home.constants";
-
-function CodeHeader() {
+function CodeHeader({ title }: { title: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const inViewObj = useIntersectionObserver(containerRef, {
     threshold: 0.9,
@@ -54,7 +51,18 @@ function CodeHeader() {
         ref={containerRef}
       >
         <Lock size={16} className="text-[#787878]" />
-        <span>my-work-experience@Tekion.com</span>
+        <span>
+          my-work-experience@
+          <motion.span
+            key={title}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {title}
+          </motion.span>
+        </span>
         <RefreshCcw size={16} className="text-[#787878]" />
       </motion.div>
       <div className="flex pr-4">

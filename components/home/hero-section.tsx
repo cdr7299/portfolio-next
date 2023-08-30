@@ -22,7 +22,9 @@ function HeroSection() {
         className="ml-2 mt-6 w-full animate-slide-from-left  text-gray-500 opacity-0 md:text-2xl"
         style={{ animationDelay: "1s", animationFillMode: "forwards" }}
       >
-        <Balancer>i {<Heart className="inline text-red-500" />} js</Balancer>
+        <Balancer>
+          i {<Heart size={45} className="mx-2 inline text-red-500" />} js
+        </Balancer>
       </p>
     </div>
   );
