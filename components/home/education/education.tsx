@@ -46,7 +46,7 @@ function Education() {
   }, [animate, shouldTriggerTimeline, scope]);
 
   return (
-    <div className="flex min-h-[850px] w-full" ref={containerRef}>
+    <div className="flex min-h-[860px] w-full" ref={containerRef}>
       <Timeline
         shouldTriggerTimeline={shouldTriggerTimeline}
         isParentInView={inViewObj?.isIntersecting || false}
