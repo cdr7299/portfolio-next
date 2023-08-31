@@ -27,6 +27,7 @@
   grid-template-rows: 1fr;
   height: 100%;
   overflow: hidden;
+  border-radius: 1rem;
 }
 
 .codeBodySections {

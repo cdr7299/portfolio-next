@@ -1,4 +1,4 @@
-import HeroSection from "@/components/home/hero-section";
+import HeroSection from "@/components/home/heroSection/hero-section";
 import Education from "@/components/home/education";
 import WorkEx from "@/components/home/workEx";
 export default async function Home() {
