@@ -8,7 +8,7 @@ import Balancer from "react-wrap-balancer";
 
 const heartVariants: Variants = {
   hover: {
-    scale: 1.3,
+    scale: 1.4,
     transition: {
       repeat: Infinity,
       duration: 0.5,
@@ -26,7 +26,7 @@ function HeroSection() {
       <motion.video
         initial={{ opacity: 0 }}
         animate={isHovering ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.7 }}
+        transition={{ duration: 0.5 }}
         src="assets/heroVideoBg2.mp4"
         muted
         autoPlay
@@ -58,7 +58,7 @@ function HeroSection() {
       >
         i{" "}
         <motion.div
-          className="mx-2"
+          className="mx-4"
           variants={heartVariants}
           animate={isHovering ? "hover" : ""}
           whileHover="hover"
