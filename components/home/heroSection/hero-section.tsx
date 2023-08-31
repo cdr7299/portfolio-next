@@ -24,6 +24,7 @@ function HeroSection() {
     <div className="flex h-[calc(100vh-8rem)] w-full flex-col items-center justify-center text-left">
       {isHovering && <div className={styles.overlay}></div>}
       <motion.video
+        initial={{ opacity: 0 }}
         animate={isHovering ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.7 }}
         src="assets/heroVideoBg2.mp4"
