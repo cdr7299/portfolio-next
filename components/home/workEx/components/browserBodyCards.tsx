@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const normalShadow = "0px 10px 30px -5px rgba(0, 0, 0, 0.3)";
 const liftShadow = "0px 30px 30px -5px rgba(0, 0, 0, 0.3)";
 
-function CodeCards({
+function BrowserBodyCards({
   projectTitle,
   accentColor,
   isSelected,
@@ -43,12 +43,13 @@ function CodeCards({
   }
 
   useEffect(() => {
-    if (containerRef?.current) {
-      containerRef.current.addEventListener("mousemove", mouseMoveEvent);
+    const element = containerRef?.current;
+    if (element) {
+      element.addEventListener("mousemove", mouseMoveEvent);
     }
     return () => {
-      if (containerRef?.current) {
-        containerRef.current.removeEventListener("mousemove", mouseMoveEvent);
+      if (element) {
+        element.removeEventListener("mousemove", mouseMoveEvent);
       }
     };
   }, []);
@@ -61,7 +62,7 @@ function CodeCards({
       }}
       ref={containerRef}
       key={projectTitle}
-      className={`${styles.codeCard} prose text-2xl font-bold shadow shadow-slate-900`}
+      className={`${styles.browserBodyCard} prose text-2xl font-bold shadow shadow-slate-900`}
       animate={{
         rotateX: mouse.x,
         rotateY: mouse.y,
@@ -77,4 +78,4 @@ function CodeCards({
   );
 }
 
-export default CodeCards;
+export default BrowserBodyCards;

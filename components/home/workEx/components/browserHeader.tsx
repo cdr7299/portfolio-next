@@ -7,44 +7,25 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-import styles from "./styles.module.css";
 import { useRef } from "react";
 import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
-import { EXIT_ANIMATION_DELAY } from "../../home.constants";
+import { HEADER_VARIANTS } from "./browser.animations";
+import styles from "./styles.module.css";
 
-const HEADER_VARIANTS = {
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      delay: 0.5,
-      duration: 0.3,
-    },
-  },
-  hidden: {
-    x: -100,
-    opacity: 0,
-    transition: {
-      delay: EXIT_ANIMATION_DELAY,
-      duration: 0.3,
-    },
-  },
-};
-
-function CodeHeader({ title }: { title: string }) {
+function BrowserHeader({ title }: { title: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const inViewObj = useIntersectionObserver(containerRef, {
     threshold: 0.9,
   });
 
   return (
-    <div className={styles.codeHeader}>
+    <div className={styles.browserHeader}>
       <div className="ml-6 flex items-center">
         <ChevronLeft className="text-[#787878]" />
         <ChevronRight className="text-[#787878]" />
       </div>
       <motion.div
-        className={`${styles.codeTitle}`}
+        className={`${styles.browserTitle}`}
         variants={HEADER_VARIANTS}
         animate={inViewObj?.isIntersecting ? "visible" : "hidden"}
         ref={containerRef}
@@ -69,4 +50,4 @@ function CodeHeader({ title }: { title: string }) {
   );
 }
 
-export default CodeHeader;
+export default BrowserHeader;

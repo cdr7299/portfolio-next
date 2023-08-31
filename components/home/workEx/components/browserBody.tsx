@@ -2,51 +2,31 @@ import styles from "./styles.module.css";
 import * as Tabs from "@radix-ui/react-tabs";
 import cx from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
-import CodeCards from "./codeCards";
+import BrowserBodyCards from "./browserBodyCards";
+import { BODY_VARIANTS } from "./browser.animations";
+import BrowserBodyProjects from "./browserBodyProjects";
 
-const sidebar = {
-  open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
-    transition: {
-      type: "spring",
-      stiffness: 20,
-      restDelta: 2,
-    },
-  }),
-  closed: {
-    clipPath: "circle(30px at 40px 40px)",
-    transition: {
-      delay: 0.5,
-      type: "spring",
-      stiffness: 400,
-      damping: 40,
-    },
-  },
-};
-
-function CodeBody({
+function BrowserBody({
   work_data,
   selectedTab,
   onTabChange,
 }: {
   work_data: any;
   selectedTab: string;
-  onTabChange: any;
+  onTabChange: (arg: string) => void;
 }) {
   const { projects } = work_data.find(
     (item: any) => item.value === selectedTab,
   );
-  const selectedProject = projects[0].project_title;
+  const selectedProjectTitle = projects[0].project_title;
 
   return (
-    <div className={styles.codeBody}>
-      <div className={styles.codeBodySections}>
+    <div className={styles.browserBody}>
+      <div className={styles.browserBodySections}>
         <Tabs.Root
           defaultValue={selectedTab}
           className="h-[calc(100%-1rem)] py-4"
-          onValueChange={(arg) => {
-            onTabChange(arg);
-          }}
+          onValueChange={onTabChange}
         >
           <Tabs.List>
             {work_data.map((item: any) => {
@@ -85,14 +65,9 @@ function CodeBody({
               >
                 <motion.div
                   className="h-full bg-[#0d1117] p-4 text-white"
-                  custom={800}
                   key={item.title}
-                  variants={sidebar}
+                  variants={BODY_VARIANTS}
                   animate={selectedTab === item.value ? "open" : "closed"}
-                  // initial={{ scaleY: 0 }}
-                  // animate={
-                  //   selectedTab === item.value ? { scaleY: 1 } : { scaleY: 0 }
-                  // }
                   transition={{
                     duration: 0.5,
                     ease: "easeIn",
@@ -103,11 +78,11 @@ function CodeBody({
                     <div className="grid grid-cols-2 grid-rows-2 gap-x-4 gap-y-6">
                       {item.projects.map(
                         ({ project_title }: { project_title: string }) => (
-                          <CodeCards
+                          <BrowserBodyCards
                             key={project_title}
                             projectTitle={project_title}
                             accentColor={item.color}
-                            isSelected={project_title === selectedProject}
+                            isSelected={project_title === selectedProjectTitle}
                           />
                         ),
                       )}
@@ -119,9 +94,14 @@ function CodeBody({
           })}
         </Tabs.Root>
       </div>
-      <div className={styles.codeBodySections}>c</div>
+      <div className={styles.browserBodySections}>
+        <BrowserBodyProjects
+          projectTitle={selectedProjectTitle}
+          accentColor={projects[0].color}
+        />
+      </div>
     </div>
   );
 }
 
-export default CodeBody;
+export default BrowserBody;
