@@ -21,7 +21,7 @@ function BrowserHeader({ title }: { title: string }) {
 
   return (
     <div className={styles.browserHeader}>
-      <div className="invisible ml-6 items-center md:visible">
+      <div className="invisible ml-6 flex items-center md:visible">
         <ChevronLeft className="text-[#787878]" />
         <ChevronRight className="text-[#787878]" />
       </div>
