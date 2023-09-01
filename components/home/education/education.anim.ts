@@ -1,11 +1,14 @@
-import { EXIT_ANIMATION_DELAY } from "../home.constants";
+import {
+  EDUCATION_ANIMATION_DURATION,
+  EXIT_ANIMATION_DELAY,
+} from "../home.constants";
 
 const TITLE_VARIANTS = {
   visible: {
     x: 0,
     opacity: 1,
     transition: {
-      duration: 0.3,
+      duration: EDUCATION_ANIMATION_DURATION,
     },
   },
   hidden: {
@@ -13,7 +16,7 @@ const TITLE_VARIANTS = {
     opacity: 0,
     transition: {
       delay: EXIT_ANIMATION_DELAY,
-      duration: 0.3,
+      duration: EDUCATION_ANIMATION_DURATION,
     },
   },
 };
@@ -23,7 +26,7 @@ const INTRO_CARD_VARIANTS = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: EDUCATION_ANIMATION_DURATION,
     },
   },
   hidden: {

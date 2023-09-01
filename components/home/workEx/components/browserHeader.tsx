@@ -11,6 +11,7 @@ import { useRef } from "react";
 import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
 import { HEADER_VARIANTS } from "./browser.animations";
 import styles from "./styles.module.css";
+import { BROWSER_ANIMATION_DURATION } from "../../home.constants";
 
 function BrowserHeader({ title }: { title: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -38,7 +39,7 @@ function BrowserHeader({ title }: { title: string }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: BROWSER_ANIMATION_DURATION }}
           >
             {title}
           </motion.span>
