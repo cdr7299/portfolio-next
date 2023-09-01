@@ -7,14 +7,11 @@ import { useEffect } from "react";
 import Balancer from "react-wrap-balancer";
 import Parallax from "@/components/layout/parllax";
 
-const normalShadow = "0px 10px 30px -5px rgba(0, 0, 0, 0.3)";
-const liftShadow = "0px 30px 30px -5px rgba(0, 0, 0, 0.3)";
-
 const project_section_variants: Variants = {
   visible: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.5, staggerChildren: 0.17, delayChildren: 0.6 },
+    transition: { duration: 0.5, staggerChildren: 0.1, delayChildren: 0.6 },
   },
   hidden: {
     y: 0,
@@ -24,17 +21,18 @@ const project_section_variants: Variants = {
 };
 const tech_section_variants: Variants = {
   visible: {
-    x: 0,
+    y: 0,
     opacity: 1,
     transition: {
       duration: BROWSER_ANIMATION_DURATION,
     },
   },
   hidden: {
-    x: 100,
+    y: 100,
     opacity: 0,
     transition: {
       duration: BROWSER_ANIMATION_DURATION,
+      ease: "easeOut",
     },
   },
 };
