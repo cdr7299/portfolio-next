@@ -124,7 +124,7 @@ function BrowserBody({
       </div>
       <div className={styles.browserBodySections}>
         <BrowserBodyProjects
-          shouldAnimate={inViewTop?.isIntersecting}
+          shouldAnimate={inViewTop?.isIntersecting || false}
           projectTitle={projects[selectedProjectIndex].project_title}
           accentColor={projects[selectedProjectIndex].color}
           techUsed={projects[selectedProjectIndex].tech_used}
