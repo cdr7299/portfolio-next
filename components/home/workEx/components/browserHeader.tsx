@@ -16,12 +16,15 @@ import { BROWSER_ANIMATION_DURATION } from "../../home.constants";
 function BrowserHeader({ title }: { title: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const inViewObj = useIntersectionObserver(containerRef, {
-    threshold: 0.9,
+    threshold: 0.7,
   });
 
   return (
     <div className={styles.browserHeader}>
-      <div className="invisible ml-6 flex items-center md:visible">
+      <div
+        className="invisible ml-6 flex items-center md:visible"
+        ref={containerRef}
+      >
         <ChevronLeft className="text-[#787878]" />
         <ChevronRight className="text-[#787878]" />
       </div>
@@ -29,7 +32,6 @@ function BrowserHeader({ title }: { title: string }) {
         className={`${styles.browserTitle} w-[90%] text-sm md:w-[50%] md:text-lg`}
         variants={HEADER_VARIANTS}
         animate={inViewObj?.isIntersecting ? "visible" : "hidden"}
-        ref={containerRef}
       >
         <Lock size={16} className="text-[#787878]" />
         <span>
