@@ -2,6 +2,7 @@ import styles from "./styles.module.css";
 import Balancer from "react-wrap-balancer";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { BROWSER_ANIMATION_DURATION } from "../../home.constants";
 
 const normalShadow = "0px 10px 30px -5px rgba(0, 0, 0, 0.3)";
 const liftShadow = "0px 30px 30px -5px rgba(0, 0, 0, 0.3)";
@@ -10,17 +11,18 @@ function BrowserBodyCards({
   projectTitle,
   accentColor,
   isSelected,
+  onProjectCardClick,
 }: {
   projectTitle: string;
   accentColor: string;
   isSelected: boolean;
+  onProjectCardClick: () => void;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const [mouse, setMouse] = useState({
     x: 0,
     y: 0,
-    scale: 1,
     shadow: normalShadow,
   });
 
@@ -32,11 +34,9 @@ function BrowserBodyCards({
       containerRef.current.style.setProperty("--x", String(offsetXFromCenter));
       containerRef.current.style.setProperty("--y", String(offsetYFromCenter));
       containerRef.current.style.setProperty("--back", accentColor);
-      const offsetFactor = 40;
       setMouse({
-        x: -offsetXFromCenter / offsetFactor,
-        y: offsetYFromCenter / offsetFactor,
-        scale: 1.05,
+        x: -offsetXFromCenter / 330,
+        y: offsetYFromCenter / 10,
         shadow: liftShadow,
       });
     }
@@ -47,6 +47,7 @@ function BrowserBodyCards({
     if (element) {
       element.addEventListener("mousemove", mouseMoveEvent);
     }
+
     return () => {
       if (element) {
         element.removeEventListener("mousemove", mouseMoveEvent);
@@ -56,7 +57,9 @@ function BrowserBodyCards({
 
   return (
     <motion.div
+      onClick={onProjectCardClick}
       style={{
+        perspective: "700px",
         color: accentColor,
         borderColor: isSelected ? accentColor : "",
       }}
@@ -66,12 +69,10 @@ function BrowserBodyCards({
       animate={{
         rotateX: mouse.x,
         rotateY: mouse.y,
-        scale: mouse.scale,
         shadow: mouse.shadow,
       }}
-      onMouseLeave={() =>
-        setMouse({ x: 0, y: 0, scale: 1, shadow: normalShadow })
-      }
+      transition={{ duration: BROWSER_ANIMATION_DURATION }}
+      onMouseLeave={() => setMouse({ x: 0, y: 0, shadow: normalShadow })}
     >
       <Balancer>{projectTitle}</Balancer>
     </motion.div>

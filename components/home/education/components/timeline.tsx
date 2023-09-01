@@ -5,16 +5,17 @@ import { GraduationCap } from "lucide-react";
 import Image from "next/image";
 import styles from "./timeline.module.css";
 import {
+  EDUCATION_ANIMATION_DURATION,
   EXIT_ANIMATION_DELAY_TIMELINE,
   PARLLAX_OFFSET_UP,
-} from "../home/home.constants";
-import Parallax from "./parllax";
+} from "../../home.constants";
+import Parallax from "../../../layout/parllax";
 
 const start_timeline_variants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.6,
+      duration: EDUCATION_ANIMATION_DURATION,
     },
   },
   hidden: {
@@ -29,7 +30,7 @@ const icon_timeline_variants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.6,
+      duration: EDUCATION_ANIMATION_DURATION,
     },
   },
   hidden: {
@@ -44,11 +45,14 @@ const icon_timeline_variants: Variants = {
 const section_timeline_variants: Variants = {
   visible: {
     height: 400,
-    transition: { delay: 0.3, duration: 0.6 },
+    transition: { delay: 0.3, duration: EDUCATION_ANIMATION_DURATION },
   },
   hidden: {
     height: "0",
-    transition: { delay: EXIT_ANIMATION_DELAY_TIMELINE, duration: 0.6 },
+    transition: {
+      delay: EXIT_ANIMATION_DELAY_TIMELINE,
+      duration: EDUCATION_ANIMATION_DURATION,
+    },
   },
 };
 

@@ -2,6 +2,7 @@ import { Variants, motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import Balancer from "react-wrap-balancer";
 import {
+  EDUCATION_ANIMATION_DURATION,
   EXIT_ANIMATION_DELAY,
 } from "./home.constants";
 
@@ -11,9 +12,8 @@ const card_variants: Variants = {
     x: 0,
     transition: {
       delay: 0.5,
-      duration: 0.2,
+      duration: EDUCATION_ANIMATION_DURATION,
       when: "beforeChildren",
-      staggerChildren: 0.5,
     },
   },
   hidden: {
@@ -21,6 +21,7 @@ const card_variants: Variants = {
     x: 300,
     transition: {
       when: "afterChildren",
+      duration: EDUCATION_ANIMATION_DURATION,
       delay: EXIT_ANIMATION_DELAY,
     },
   },
