@@ -47,7 +47,10 @@ function Education() {
   }, [animate, shouldTriggerTimeline, scope]);
 
   return (
-    <div className="flex min-h-[860px] w-full" ref={containerRefTop}>
+    <div
+      className="flex min-h-[45rem] w-full md:min-h-[53rem]"
+      ref={containerRefTop}
+    >
       <Timeline
         shouldTriggerTimeline={shouldTriggerTimeline}
         isParentInView={inViewTop?.isIntersecting || false}
@@ -58,7 +61,7 @@ function Education() {
             initial="hidden"
             animate={inViewTop?.isIntersecting ? "visible" : "hidden"}
             variants={INTRO_CARD_VARIANTS}
-            className="h-[350px] rounded-2xl bg-gradient-to-br from-purple-100 to-purple-200 p-6"
+            className="h-[250px] rounded-2xl bg-gradient-to-br from-purple-100 to-purple-200 p-6 lg:h-[350px]"
           >
             <Parallax offset={PARLLAX_OFFSET_DOWN}>
               <Balancer>

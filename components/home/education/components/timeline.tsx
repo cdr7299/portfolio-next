@@ -64,7 +64,7 @@ function TimelineStart({
   shouldTriggerTimeline: boolean;
 }) {
   return (
-    <div className="flex w-1/6 flex-col px-4">
+    <div className="flex w-1/6 flex-col md:px-4">
       <Parallax offset={PARLLAX_OFFSET_UP}>
         <motion.div
           initial="hidden"
@@ -78,7 +78,7 @@ function TimelineStart({
             height={100}
             width={500}
             alt="whoops"
-            className="ml-2 mt-[-350px] max-w-full lg:!max-w-[100vw]"
+            className="ml-2 mt-[-30vh] max-w-[90vw] md:mt-[-350px] lg:max-w-[100vw]"
           />
         </motion.div>
         <motion.div

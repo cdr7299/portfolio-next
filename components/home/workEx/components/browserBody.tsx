@@ -122,7 +122,7 @@ function BrowserBody({
           })}
         </Tabs.Root>
       </div>
-      <div className={styles.browserBodySections}>
+      <div className={`${styles.browserBodySections} hidden lg:block`}>
         <BrowserBodyProjects
           shouldAnimate={inViewTop?.isIntersecting || false}
           projectTitle={projects[selectedProjectIndex].project_title}

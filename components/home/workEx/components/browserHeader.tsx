@@ -21,12 +21,12 @@ function BrowserHeader({ title }: { title: string }) {
 
   return (
     <div className={styles.browserHeader}>
-      <div className="ml-6 flex items-center">
+      <div className="invisible ml-6 items-center md:visible">
         <ChevronLeft className="text-[#787878]" />
         <ChevronRight className="text-[#787878]" />
       </div>
       <motion.div
-        className={`${styles.browserTitle}`}
+        className={`${styles.browserTitle} w-[90%] text-sm md:w-[50%] md:text-lg`}
         variants={HEADER_VARIANTS}
         animate={inViewObj?.isIntersecting ? "visible" : "hidden"}
         ref={containerRef}
@@ -44,9 +44,9 @@ function BrowserHeader({ title }: { title: string }) {
             {title}
           </motion.span>
         </span>
-        <RefreshCcw size={16} className="text-[#787878]" />
+        <RefreshCcw size={16} className="text-[#787878] " />
       </motion.div>
-      <Plus className="mr-6 text-[#787878]" />
+      <Plus className="invisible mr-6 text-[#787878] md:visible" />
     </div>
   );
 }

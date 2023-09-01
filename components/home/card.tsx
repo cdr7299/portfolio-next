@@ -9,7 +9,7 @@ import {
 const card_variants: Variants = {
   visible: {
     opacity: 1,
-    x: 0,
+    y: 0,
     transition: {
       delay: 0.5,
       duration: EDUCATION_ANIMATION_DURATION,
@@ -18,7 +18,7 @@ const card_variants: Variants = {
   },
   hidden: {
     opacity: 0,
-    x: 300,
+    y: 300,
     transition: {
       when: "afterChildren",
       duration: EDUCATION_ANIMATION_DURATION,
@@ -47,7 +47,7 @@ export default function Card({
       }`}
     >
       <div className="flex w-full">
-        <div className="prose w-1/2 text-3xl font-bold">
+        <div className="text-md prose w-1/2 font-bold tracking-tight md:text-3xl md:tracking-normal">
           <div className=" text-green-500">
             <Balancer>{title}</Balancer>
           </div>
@@ -62,7 +62,7 @@ export default function Card({
             animate={isRendered ? "visible" : "hidden"}
             exit="hidden"
             variants={card_variants}
-            className="prose-sm -mt-2 leading-normal text-gray-500 md:prose"
+            className="prose-sm -mt-2 leading-normal text-gray-500 md:prose "
           >
             <Balancer>
               <ReactMarkdown
@@ -72,7 +72,7 @@ export default function Card({
                       target="_blank"
                       rel="noopener noreferrer"
                       {...props}
-                      className="font-medium text-gray-800 underline transition-colors"
+                      className="!text-sm font-medium text-gray-800 underline transition-colors md:text-lg "
                     />
                   ),
                   code: ({ node, ...props }) => (
