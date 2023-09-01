@@ -3,8 +3,8 @@
     0px 0px 10px 12px #cfadf4d0,
     inset 0px 0px 20px 30px #cfadf4d0;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   animation: animate 3s linear infinite;
   text-shadow:
     0 0 50px #0072ff,
@@ -12,8 +12,8 @@
     0 0 150px #0072ff,
     0 0 200px #0072ff;
   color: black;
-  padding: 0.2rem;
-  margin: 0.75rem 0.1rem;
+  padding: 0.05rem;
+  margin: 0.75rem 0.3rem;
   display: flex;
   align-items: center;
   justify-content: center;

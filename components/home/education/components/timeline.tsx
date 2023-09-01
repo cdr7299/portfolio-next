@@ -87,7 +87,7 @@ function TimelineStart({
           className={styles.iconGlow}
           variants={icon_timeline_variants}
         >
-          <GraduationCap strokeWidth="0.1rem" color="#222" size={35} />
+          <GraduationCap strokeWidth="0.1rem" color="#222" size={40} />
         </motion.div>
         <motion.div
           // animate={shouldTriggerTimeline ? { height: 400 } : ""}
