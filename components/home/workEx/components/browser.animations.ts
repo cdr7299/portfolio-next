@@ -1,27 +1,5 @@
 import { Variants } from "framer-motion";
-import {
-  BROWSER_ANIMATION_DURATION,
-  EXIT_ANIMATION_DELAY,
-} from "../../home.constants";
-
-const HEADER_VARIANTS: Variants = {
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      delay: 0.5,
-      duration: BROWSER_ANIMATION_DURATION,
-    },
-  },
-  hidden: {
-    x: -100,
-    opacity: 0,
-    transition: {
-      delay: EXIT_ANIMATION_DELAY,
-      duration: BROWSER_ANIMATION_DURATION,
-    },
-  },
-};
+import { BROWSER_ANIMATION_DURATION } from "../../home.constants";
 
 const BODY_VARIANTS: Variants = {
   open: {
@@ -55,4 +33,4 @@ const BODY_VARIANTS: Variants = {
   },
 };
 
-export { HEADER_VARIANTS, BODY_VARIANTS };
+export { BODY_VARIANTS };
