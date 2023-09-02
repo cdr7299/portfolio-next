@@ -7,31 +7,18 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-import { useRef } from "react";
-import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
-import { HEADER_VARIANTS } from "./browser.animations";
 import styles from "./styles.module.css";
 import { BROWSER_ANIMATION_DURATION } from "../../home.constants";
 
 function BrowserHeader({ title }: { title: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const inViewObj = useIntersectionObserver(containerRef, {
-    threshold: 0.7,
-  });
-
   return (
     <div className={styles.browserHeader}>
-      <div
-        className="invisible ml-6 flex items-center md:visible"
-        ref={containerRef}
-      >
+      <div className="invisible ml-6 flex items-center md:visible">
         <ChevronLeft className="text-[#787878]" />
         <ChevronRight className="text-[#787878]" />
       </div>
       <motion.div
         className={`${styles.browserTitle} w-[90%] text-sm md:w-[50%] md:text-lg`}
-        variants={HEADER_VARIANTS}
-        animate={inViewObj?.isIntersecting ? "visible" : "hidden"}
       >
         <Lock size={16} className="text-[#787878]" />
         <span>

@@ -10,25 +10,25 @@ import Parallax from "@/components/layout/parllax";
 const project_section_variants: Variants = {
   visible: {
     y: 0,
-    opacity: 1,
+
     transition: { duration: 0.5, staggerChildren: 0.1, delayChildren: 0.6 },
   },
   hidden: {
     y: 0,
-    opacity: 0,
+
     transition: { staggerChildren: 0.1, delayChildren: 0 },
   },
 };
 const tech_section_variants: Variants = {
   visible: {
-    y: 0,
+    x: 0,
     opacity: 1,
     transition: {
       duration: BROWSER_ANIMATION_DURATION,
     },
   },
   hidden: {
-    y: 100,
+    x: 100,
     opacity: 0,
     transition: {
       duration: BROWSER_ANIMATION_DURATION,
@@ -68,7 +68,7 @@ function BrowserBodyProjects({
         key={projectTitle}
         className="flex min-h-[45%] flex-col rounded-xl border-[0.1rem] border-[#16191c] bg-[#30363D] p-4 shadow-lg shadow-[#16191c] "
       >
-        <Parallax offset={PARLLAX_OFFSET_DOWN}>
+        <Parallax offset={PARLLAX_OFFSET_DOWN / 4}>
           <h2 className="prose mb-6 border-b-2 pb-2 text-center font-semibold tracking-wide text-slate-300 lg:prose-xl">
             <Balancer>Tech Stack</Balancer>
           </h2>
