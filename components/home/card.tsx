@@ -5,7 +5,8 @@ import {
   EDUCATION_ANIMATION_DURATION,
   EXIT_ANIMATION_DELAY,
 } from "./home.constants";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useDemoModal } from "./demo-modal";
 
 const card_variants: Variants = {
   visible: {
@@ -59,53 +60,62 @@ export default function Card({
     }
   }, [animate, isRendered, scope]);
 
-  return (
-    <div
-      className={`relative col-span-1 mb-4 h-[150px] ${
-        large ? "md:col-span-2" : ""
-      }`}
-    >
-      <div className="flex w-full">
-        <motion.div
-          initial={{ opacity: 0 }}
-          ref={scope}
-          className="text-md prose w-1/2 font-bold tracking-tight md:text-3xl md:tracking-normal"
-        >
-          <div className=" text-green-500">
-            <Balancer>{title}</Balancer>
-          </div>
-          <div className=" text-green-900">
-            <Balancer>{school}</Balancer>
-          </div>
-        </motion.div>
+  const [showCard, setShowCard] = useState(false);
 
-        <div className="flex w-1/2 flex-col items-end justify-start gap-1">
+  return (
+    <>
+      <div
+        className={`relative col-span-1 mb-4 h-[150px] ${
+          large ? "md:col-span-2" : ""
+        }`}
+      >
+        <div className="flex w-full">
           <motion.div
-            initial="hidden"
-            animate={isRendered ? "visible" : "hidden"}
-            exit="hidden"
-            variants={card_variants}
-            className="text-right text-2xl leading-normal text-gray-500"
+            initial={{ opacity: 0 }}
+            ref={scope}
+            className="text-md prose w-1/2 font-bold tracking-tight md:text-3xl md:tracking-normal"
           >
-            {description}
+            <div className=" text-green-500">
+              <Balancer>{title}</Balancer>
+            </div>
+            <div className=" text-green-900">
+              <Balancer>{school}</Balancer>
+            </div>
           </motion.div>
-          <motion.button
-            className="rounded-2xl bg-gray-800/60 px-6 py-2 text-white"
-            whileHover={{ scale: 1.1 }}
-          >
-            See My Projects
-          </motion.button>
-        </div>
-        {/* <motion.div
+
+          <div className="flex w-1/2 flex-col items-end justify-start gap-1">
+            <motion.div
+              initial="hidden"
+              animate={isRendered ? "visible" : "hidden"}
+              exit="hidden"
+              variants={card_variants}
+              className="text-right text-base leading-normal text-gray-500 lg:text-2xl"
+            >
+              {description}
+            </motion.div>
+            <motion.button
+              className={
+                "relative rounded-2xl bg-gray-800/60 px-6 py-2  text-sm text-white disabled:cursor-not-allowed lg:text-lg"
+              }
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+              disabled
+              // onClick={(prev) => setShowDemoModal(true)}
+            >
+              See My Projects
+            </motion.button>
+          </div>
+          {/* <motion.div
           initial="hidden"
           animate={isRendered ? "visible" : "hidden"}
           exit="hidden"
           variants={card_variants}
           className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-xl font-bold text-transparent md:text-3xl md:font-normal"
-        >
-
+          >
+          
         </motion.div> */}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

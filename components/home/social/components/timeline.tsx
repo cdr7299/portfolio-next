@@ -28,7 +28,7 @@ const icon_timeline_variants: Variants = {
 
 const section_timeline_variants: Variants = {
   visible: {
-    height: 400,
+    height: 600,
     transition: { delay: 0.3, duration: EDUCATION_ANIMATION_DURATION },
   },
   hidden: {
@@ -46,7 +46,7 @@ function TimelineMiddle({
   shouldTriggerTimeline: boolean;
 }) {
   return (
-    <div className="flex w-1/6 flex-col md:px-4">
+    <div className="relative -z-10 -mt-8 ml-4 flex w-[20px] flex-col">
       <Parallax offset={PARLLAX_OFFSET_UP}>
         <motion.div
           // animate={shouldTriggerTimeline ? { height: 400 } : ""}
@@ -54,23 +54,23 @@ function TimelineMiddle({
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
           exit="hidden"
           variants={section_timeline_variants}
-          className="ml-5 w-[4px] rounded bg-gradient-to-b from-rose-300 via-red-700 to-red-900"
+          className="ml-5 w-[4px] rounded bg-gradient-to-b from-red-200 via-red-400 to-red-500"
         ></motion.div>
-        <motion.div
+        {/* <motion.div
           initial="hidden"
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
           className={styles.iconGlow}
           variants={icon_timeline_variants}
         >
           <GraduationCap strokeWidth="0.2rem" color="#fff" size={40} />
-        </motion.div>
+        </motion.div> */}
         <motion.div
           // animate={shouldTriggerTimeline ? { height: 400 } : ""}
           initial="hidden"
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
           exit="hidden"
           variants={section_timeline_variants}
-          className="ml-5 w-[4px] rounded bg-gradient-to-b from-red-700 via-rose-200 to-blue-100"
+          className="-mt-1 ml-5 w-[4px] rounded bg-gradient-to-b from-red-500 via-red-800 to-red-900"
         ></motion.div>
       </Parallax>
     </div>

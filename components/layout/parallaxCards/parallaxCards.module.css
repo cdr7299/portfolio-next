@@ -7,7 +7,6 @@
   border-radius: 1rem;
   position: relative;
   overflow: hidden;
-  padding: 2rem;
 }
 
 .parallaxCardBase::after {

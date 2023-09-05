@@ -40,12 +40,12 @@ function Education() {
             <motion.div
               initial="hidden"
               animate={inViewTop?.isIntersecting ? "visible" : "hidden"}
-              className="h-[250px]   lg:h-[350px]"
+              className="h-[250px] lg:h-[350px]"
               variants={INTRO_CARD_VARIANTS}
             >
               <ParallaxCard
                 accentColor="rgb(100 241 123)"
-                containerClasses="rounded-xl !border-[0] dark:!border-[0.15rem] dark:!border-[#30363d] !bg-purple-200 dark:!bg-[#161b22] shadow-md"
+                containerClasses="p-8 rounded-xl !border-[0] dark:!border-[0.15rem] dark:!border-[#30363d] !bg-purple-200 dark:!bg-[#161b22] shadow-md"
               >
                 {/* <Parallax offset={PARLLAX_OFFSET_DOWN}> */}
                 <Balancer ratio={0.5}>
