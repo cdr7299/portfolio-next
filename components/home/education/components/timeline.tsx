@@ -64,7 +64,7 @@ function TimelineStart({
   shouldTriggerTimeline: boolean;
 }) {
   return (
-    <div className="flex w-1/6 flex-col md:px-4">
+    <div className="flex w-[50px] flex-col md:px-4 lg:w-[150px]">
       <Parallax offset={PARLLAX_OFFSET_UP}>
         <motion.div
           initial="hidden"

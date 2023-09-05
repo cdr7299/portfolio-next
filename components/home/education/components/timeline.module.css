@@ -1,7 +1,7 @@
 .iconGlow {
   box-shadow:
-    0px 0px 10px 12px #cfadf4d0,
-    inset 0px 0px 20px 30px #cfadf4d0;
+    0px 0px 5px 15px #dd7df729,
+    inset 0px 0px 5px 20px #dd7df733;
   border-radius: 50%;
   width: 40px;
   height: 40px;
