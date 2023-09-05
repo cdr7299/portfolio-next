@@ -6,6 +6,7 @@ import useScroll from "@/lib/hooks/use-scroll";
 import { useSignInModal } from "./sign-in-modal";
 import UserDropdown from "./user-dropdown";
 import { Session } from "next-auth";
+import ThemeSwitch from "../shared/themeSwitch";
 
 export default function NavBar({ session }: { session: Session | null }) {
   const { SignInModal, setShowSignInModal } = useSignInModal();
@@ -17,7 +18,7 @@ export default function NavBar({ session }: { session: Session | null }) {
       <div
         className={`fixed top-0 hidden w-full justify-center md:flex ${
           scrolled
-            ? "border-b border-gray-200 bg-white/50 backdrop-blur-xl"
+            ? "border-b border-gray-200 bg-white/50 backdrop-blur-xl dark:border-gray-700 dark:bg-[#0d1117]/50 dark:backdrop-blur-xl"
             : "bg-white/0"
         } z-30 transition-all`}
       >
@@ -29,10 +30,13 @@ export default function NavBar({ session }: { session: Session | null }) {
               width="30"
               height="30"
               className="mr-2 rounded-sm"
+              priority
             ></Image>
             <p>Welcome</p>
           </Link>
-          <div>
+          <div className="flex items-center">
+            <ThemeSwitch />
+
             {session ? (
               <UserDropdown session={session} />
             ) : (

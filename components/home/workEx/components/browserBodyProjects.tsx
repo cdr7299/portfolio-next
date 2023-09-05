@@ -3,19 +3,15 @@ import {
   BROWSER_ANIMATION_DURATION,
   PARLLAX_OFFSET_DOWN,
 } from "../../home.constants";
-import { useEffect } from "react";
 import Balancer from "react-wrap-balancer";
 import Parallax from "@/components/layout/parllax";
+import Image from "next/image";
 
 const project_section_variants: Variants = {
   visible: {
-    y: 0,
-
     transition: { duration: 0.5, staggerChildren: 0.1, delayChildren: 0.6 },
   },
   hidden: {
-    y: 0,
-
     transition: { staggerChildren: 0.1, delayChildren: 0 },
   },
 };
@@ -42,19 +38,14 @@ function BrowserBodyProjects({
   accentColor,
   techUsed,
   shouldAnimate,
+  projectDescription,
 }: {
   projectTitle: string;
   accentColor: string;
-  techUsed: string[];
+  techUsed: any[];
   shouldAnimate: boolean;
+  projectDescription: string;
 }) {
-  useEffect(() => {
-    console.log("mounts");
-
-    return () => {
-      console.log("unmounts");
-    };
-  }, []);
   return (
     <motion.div
       key={projectTitle}
@@ -69,24 +60,25 @@ function BrowserBodyProjects({
         className="flex min-h-[45%] flex-col rounded-xl border-[0.1rem] border-[#16191c] bg-[#30363D] p-4 shadow-lg shadow-[#16191c] "
       >
         <Parallax offset={PARLLAX_OFFSET_DOWN / 4}>
-          <h2 className="prose mb-6 border-b-2 pb-2 text-center font-semibold tracking-wide text-slate-300 lg:prose-xl">
+          <h2 className="prose mb-6 border-b-[0.1rem] border-[#16191c]  pb-2 text-center font-semibold tracking-wide text-slate-100 lg:prose-xl">
             <Balancer>Tech Stack</Balancer>
           </h2>
           <ul className="flex flex-wrap gap-3">
-            {techUsed.map((item) => (
+            {techUsed.map(({ title, icon }) => (
               <motion.li
                 variants={tech_section_variants}
-                key={item}
-                className="rounded-md border-[0.05rem] border-stone-500 bg-stone-900 px-6 py-1 shadow-lg"
+                key={title}
+                className="flex items-center gap-4 rounded-lg  bg-[#161b22] px-6 py-2 shadow"
               >
-                {item}
+                <Image src={icon} width={80} height={10} alt="icon" />
+                {title}
               </motion.li>
             ))}
           </ul>
         </Parallax>
       </div>
       <motion.div className="flex min-h-[45%] flex-col rounded-xl border-[0.1rem] border-[#16191c] bg-[#30363D] p-8 shadow-lg shadow-[#16191c]">
-        some description about work
+        {projectDescription}
       </motion.div>
     </motion.div>
   );

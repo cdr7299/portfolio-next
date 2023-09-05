@@ -1,10 +1,11 @@
-import { Variants, motion } from "framer-motion";
+import { Variants, motion, useAnimate } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import Balancer from "react-wrap-balancer";
 import {
   EDUCATION_ANIMATION_DURATION,
   EXIT_ANIMATION_DELAY,
 } from "./home.constants";
+import { useEffect } from "react";
 
 const card_variants: Variants = {
   visible: {
@@ -18,7 +19,7 @@ const card_variants: Variants = {
   },
   hidden: {
     opacity: 0,
-    y: 300,
+    y: -100,
     transition: {
       when: "afterChildren",
       duration: EDUCATION_ANIMATION_DURATION,
@@ -40,6 +41,24 @@ export default function Card({
   large?: boolean;
   isRendered?: boolean;
 }) {
+  const [scope, animate] = useAnimate();
+
+  useEffect(() => {
+    if (isRendered) {
+      animate(
+        scope.current,
+        { opacity: 1, x: 0 },
+        { delay: 0.3, duration: EDUCATION_ANIMATION_DURATION },
+      );
+    } else {
+      animate(
+        scope.current,
+        { opacity: 0, x: -100 },
+        { delay: EXIT_ANIMATION_DELAY, duration: EDUCATION_ANIMATION_DURATION },
+      );
+    }
+  }, [animate, isRendered, scope]);
+
   return (
     <div
       className={`relative col-span-1 mb-4 h-[150px] ${
@@ -47,14 +66,18 @@ export default function Card({
       }`}
     >
       <div className="flex w-full">
-        <div className="text-md prose w-1/2 font-bold tracking-tight md:text-3xl md:tracking-normal">
+        <motion.div
+          initial={{ opacity: 0 }}
+          ref={scope}
+          className="text-md prose w-1/2 font-bold tracking-tight md:text-3xl md:tracking-normal"
+        >
           <div className=" text-green-500">
             <Balancer>{title}</Balancer>
           </div>
           <div className=" text-green-900">
             <Balancer>{school}</Balancer>
           </div>
-        </div>
+        </motion.div>
 
         <div className="w-1/2">
           <motion.div

@@ -3,10 +3,10 @@
 import styles from "./styles.module.css";
 import BrowserHeader from "./components/browserHeader";
 import BrowserBody from "./components/browserBody";
-import Parallax from "@/components/layout/parllax";
-import { PARLLAX_OFFSET_DOWN } from "../home.constants";
 import { useCallback, useState } from "react";
 import { work_data } from "./workEx.constants";
+import Parallax from "@/components/layout/parllax";
+import { PARLLAX_OFFSET_DOWN } from "../home.constants";
 
 function WorkEx() {
   const [selectedTab, setSelectedTab] = useState<string>(work_data[0].value);
@@ -27,7 +27,6 @@ function WorkEx() {
             onTabChange={onTabChange}
           />
         </div>
-        <div className="h-500px"></div>
       </div>
     </Parallax>
   );

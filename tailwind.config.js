@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require("tailwindcss/plugin");
+const colors = require('tailwindcss/colors')
 
 module.exports = {
   darkMode: 'class',
@@ -9,6 +10,21 @@ module.exports = {
   },
   theme: {
     extend: {
+      colors: {
+        border: {
+          'dark-border': '#30363d',
+        },
+      },
+      backgroundImage: {
+        'gradient-dark': `linear-gradient(to right, #0d1117, #0d1117)`,
+        'gradient-light': `linear-gradient(to bottom right, ${colors.indigo[200]}, ${colors.rose[100]}, ${colors.cyan[200]})`,
+        'text-gradient-dark': `linear-gradient(to bottom right, ${colors.black}, ${colors.stone[900]})`,
+        'text-gradient-light': `linear-gradient(to right, ${colors.stone[100]}, ${colors.stone[900]})`,
+      },
+      backgroundColor: {
+        'dark-bg': '#161b22',
+      },
+
       fontFamily: {
         display: ["var(--font-sf)", "system-ui", "sans-serif"],
         default: ["var(--font-inter)", "system-ui", "sans-serif"],

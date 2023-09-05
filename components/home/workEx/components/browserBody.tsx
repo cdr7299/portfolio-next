@@ -56,13 +56,19 @@ function BrowserBody({
                       transition={{ duration: BROWSER_ANIMATION_DURATION }}
                       whileHover={{ color: "#fff" }}
                       className={cx(
-                        "ml-2 w-[120px] rounded-t-md py-2 text-center text-sm font-bold leading-5 tracking-normal text-slate-500",
+                        "relative ml-2 w-[120px] rounded-t-md py-2 text-center text-sm font-bold leading-7 tracking-normal text-slate-500",
                         {
                           "!text-white": selectedTab === item.value,
                         },
                       )}
                     >
                       {item.title}
+                      {selectedTab === item.value && (
+                        <motion.div
+                          className={styles.underline}
+                          layoutId="underline"
+                        />
+                      )}
                     </motion.div>
                   </AnimatePresence>
                 </Tabs.Trigger>
@@ -99,7 +105,11 @@ function BrowserBody({
                       <div className="grid grid-cols-2 grid-rows-2 gap-x-4 gap-y-6">
                         {item.projects.map(
                           (
-                            { project_title }: { project_title: string },
+                            {
+                              project_title,
+                            }: {
+                              project_title: string;
+                            },
                             index: number,
                           ) => (
                             <BrowserBodyCards
@@ -128,6 +138,7 @@ function BrowserBody({
           projectTitle={projects[selectedProjectIndex].project_title}
           accentColor={projects[selectedProjectIndex].color}
           techUsed={projects[selectedProjectIndex].tech_used}
+          projectDescription={projects[selectedProjectIndex].description}
         />
       </div>
     </div>

@@ -1,5 +1,7 @@
 .baseContainer {
-  min-height: 800px;
+  /* min-height: 800px; */
+  z-index: 20;
+  position: relative;
 }
 
 .browserContainer {
