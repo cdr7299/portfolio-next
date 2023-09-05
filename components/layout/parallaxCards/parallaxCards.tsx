@@ -1,23 +1,29 @@
-import styles from "./styles.module.css";
-import Balancer from "react-wrap-balancer";
+import styles from "./parallaxCards.module.css";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 const normalShadow = "0px 10px 30px -5px rgba(0, 0, 0, 0.3)";
 const liftShadow = "0px 30px 30px -5px rgba(0, 0, 0, 0.3)";
 
-function BrowserBodyCards({
-  projectTitle,
+function ParallaxCard({
   accentColor,
   isSelected,
   onProjectCardClick,
+  children,
+  containerClasses,
 }: {
-  projectTitle: string;
-  accentColor: string;
-  isSelected: boolean;
-  onProjectCardClick: () => void;
+  accentColor?: string;
+  isSelected?: boolean;
+  onProjectCardClick?: () => void;
+  children: React.ReactElement;
+  containerClasses: string;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (containerRef.current)
+      containerRef.current.style.setProperty("--back1", accentColor || "");
+  }, [accentColor]);
 
   const [mouse, setMouse] = useState({
     x: 0,
@@ -27,16 +33,20 @@ function BrowserBodyCards({
 
   function mouseMoveEvent(e: MouseEvent) {
     if (containerRef?.current) {
-      const { height, width } = containerRef.current.getBoundingClientRect();
+      const { width, height } = containerRef.current.getBoundingClientRect();
+      console.log("container: ", width, height);
+      console.log("ptr: y x ", e.offsetX, e.offsetY);
+
       let oldRangeY = width - 0.0;
       let newRangeY = 1.5 - -1.5;
       let newY = ((e.offsetX - 0) * newRangeY) / oldRangeY + -1.5;
       let oldRangeX = height - 0.0;
       let newRangeX = 1 - -1;
       let newX = ((e.offsetY - 0) * newRangeX) / oldRangeX + -1;
-      containerRef.current.style.setProperty("--x", String(e.offsetX));
-      containerRef.current.style.setProperty("--y", String(e.offsetY));
-      containerRef.current.style.setProperty("--back", accentColor || "");
+      containerRef.current.style.setProperty("--x1", String(e.offsetX));
+      containerRef.current.style.setProperty("--y1", String(e.offsetY));
+      containerRef.current.style.setProperty("--back1", accentColor || "");
+      // console.log({ y: -offsetXFromCenter / 360, x: -offsetYFromCenter / 360 });
       setMouse({
         x: newX,
         y: -newY,
@@ -63,25 +73,22 @@ function BrowserBodyCards({
       onClick={onProjectCardClick}
       style={{
         perspective: "700px",
-        color: accentColor,
         borderColor: isSelected ? accentColor : "",
       }}
       ref={containerRef}
-      key={projectTitle}
-      className={`${styles.browserBodyCard} prose text-2xl font-bold shadow shadow-slate-900`}
+      className={`${styles.parallaxCardBase} ${containerClasses}`}
       animate={{
         perspective: "700px",
         rotateX: mouse.x * 7,
-        rotateY: mouse.y * 4,
+        rotateY: mouse.y * 2,
         shadow: mouse.shadow,
       }}
-      transition={{ duration: 0.2 }}
-      whileTap={{ scale: 0.9 }}
+      transition={{ duration: 0.3 }}
       onMouseLeave={() => setMouse({ x: 0, y: 0, shadow: normalShadow })}
     >
-      <Balancer>{projectTitle}</Balancer>
+      {children}
     </motion.div>
   );
 }
 
-export default BrowserBodyCards;
+export default ParallaxCard;

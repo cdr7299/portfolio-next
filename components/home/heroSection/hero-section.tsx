@@ -5,6 +5,7 @@ import { useState } from "react";
 import styles from "./styles.module.css";
 import cx from "classnames";
 import Balancer from "react-wrap-balancer";
+import Image from "next/image";
 
 const heartVariants: Variants = {
   hover: {
@@ -49,9 +50,11 @@ function HeroSection() {
       <motion.h1
         layout
         className={cx(
-          "w-full animate-slide-from-left bg-clip-text font-display text-4xl font-bold tracking-[0.01em] text-transparent opacity-0 drop-shadow-sm md:text-7xl md:leading-[5rem]",
-          { "bg-gradient-to-br from-black to-stone-500 ": !isHovering },
-          { "bg-gradient-to-br from-stone-400 to-stone-500 ": isHovering },
+          "w-full animate-slide-from-left bg-clip-text font-display text-4xl font-bold tracking-[0.01em] text-transparent opacity-0 drop-shadow-sm  md:text-7xl md:leading-[5rem]",
+          {
+            "bg-text-gradient-dark dark:bg-text-gradient-light": !isHovering,
+          },
+          { "bg-text-gradient-light": isHovering },
         )}
         style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}
       >
@@ -83,7 +86,13 @@ function HeroSection() {
             size={35}
           />
         </motion.div>
-        js
+        <Image
+          priority
+          src={"/assets/tech/js.png"}
+          alt="js"
+          width={40}
+          height={10}
+        />
       </div>
     </div>
   );

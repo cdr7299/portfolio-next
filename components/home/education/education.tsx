@@ -1,20 +1,16 @@
 "use client";
 
-import { motion, useAnimate } from "framer-motion";
+import { motion } from "framer-motion";
 import Balancer from "react-wrap-balancer";
 import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Timeline from "./components/timeline";
 import Card from "../card";
-import {
-  EDUCATION_ANIMATION_DURATION,
-  EXIT_ANIMATION_DELAY,
-  PARLLAX_OFFSET_DOWN,
-  PARLLAX_OFFSET_UP,
-} from "../home.constants";
+import { PARLLAX_OFFSET_DOWN, PARLLAX_OFFSET_UP } from "../home.constants";
 import { EDUCATION_DATA } from "./education.constants";
 import { INTRO_CARD_VARIANTS, TITLE_VARIANTS } from "./education.anim";
 import Parallax from "@/components/layout/parllax";
+import ParallaxCard from "@/components/layout/parallaxCards/parallaxCards";
 
 function Education() {
   const containerRefTop = useRef<HTMLDivElement>(null);
@@ -28,23 +24,6 @@ function Education() {
     rootMargin: "-100px",
   });
   const shouldTriggerTimeline = inViewMiddle?.isIntersecting || false;
-  const [scope, animate] = useAnimate();
-
-  useEffect(() => {
-    if (shouldTriggerTimeline) {
-      animate(
-        scope.current,
-        { opacity: 1, x: 0 },
-        { delay: 0.3, duration: EDUCATION_ANIMATION_DURATION },
-      );
-    } else {
-      animate(
-        scope.current,
-        { opacity: 0, x: -100 },
-        { delay: EXIT_ANIMATION_DELAY, duration: EDUCATION_ANIMATION_DURATION },
-      );
-    }
-  }, [animate, shouldTriggerTimeline, scope]);
 
   return (
     <div
@@ -56,37 +35,39 @@ function Education() {
         isParentInView={inViewTop?.isIntersecting || false}
       />
       <div className="flex w-5/6 flex-col gap-10 ">
-        <div className="w-full font-display text-xl font-bold tracking-[0.01em] drop-shadow-sm md:text-2xl md:leading-[3rem] lg:text-4xl">
-          <motion.div
-            initial="hidden"
-            animate={inViewTop?.isIntersecting ? "visible" : "hidden"}
-            variants={INTRO_CARD_VARIANTS}
-            className="h-[250px] rounded-2xl bg-gradient-to-br from-purple-100 to-purple-200 p-6 lg:h-[350px]"
-          >
-            <Parallax offset={PARLLAX_OFFSET_DOWN}>
-              <Balancer>
-                Software Engineer with 3 years of experience writing JavaScript.
-                Enjoy working with React, Next and Framer. I love exploring the
-                opinionated javascript world.
-              </Balancer>
-            </Parallax>
-          </motion.div>
-        </div>
+        <Parallax offset={PARLLAX_OFFSET_DOWN}>
+          <div className="w-full font-display text-xl font-bold tracking-[0.01em] drop-shadow-sm md:text-2xl md:leading-[3rem] lg:text-4xl">
+            <motion.div
+              initial="hidden"
+              animate={inViewTop?.isIntersecting ? "visible" : "hidden"}
+              className="h-[250px]   lg:h-[350px]"
+              variants={INTRO_CARD_VARIANTS}
+            >
+              <ParallaxCard
+                accentColor="rgb(100 241 123)"
+                containerClasses="rounded-xl !border-[0] dark:!border-[0.15rem] dark:!border-[#30363d] !bg-purple-200 dark:!bg-[#161b22] shadow-md"
+              >
+                {/* <Parallax offset={PARLLAX_OFFSET_DOWN}> */}
+                <Balancer ratio={0.5}>
+                  Software Engineer with 3 years of experience writing
+                  JavaScript. Enjoy working with React, Next and Framer. I love
+                  exploring the opinionated javascript world.
+                </Balancer>
+              </ParallaxCard>
+            </motion.div>
+          </div>
+        </Parallax>
         <Parallax offset={PARLLAX_OFFSET_UP}>
           <div ref={containerRefMiddle}>
             <motion.div
               initial="hidden"
               animate={shouldTriggerTimeline ? "visible" : "hidden"}
               variants={TITLE_VARIANTS}
-              className="mb-8 mt-2 font-display text-xl font-bold tracking-[0.01em] drop-shadow-sm md:text-2xl md:leading-[3rem] lg:text-4xl"
+              className="mb-8 mt-2 font-display text-xl font-bold tracking-[0.01em] md:text-2xl md:leading-[3rem] lg:text-4xl"
             >
               <Balancer>Education</Balancer>
             </motion.div>
-            <motion.div
-              className="flex w-full flex-col"
-              initial={{ opacity: 0 }}
-              ref={scope}
-            >
+            <div className="flex w-full flex-col">
               {EDUCATION_DATA.map((card_item) => {
                 return (
                   <Card
@@ -98,7 +79,7 @@ function Education() {
                   ></Card>
                 );
               })}
-            </motion.div>
+            </div>
           </div>
         </Parallax>
       </div>

@@ -4,10 +4,12 @@ import cx from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import BrowserBodyCards from "./browserBodyCards";
 import { BODY_VARIANTS } from "./browser.animations";
+import Balancer from "react-wrap-balancer";
 import BrowserBodyProjects from "./browserBodyProjects";
 import React, { useRef, useState } from "react";
 import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
 import { BROWSER_ANIMATION_DURATION } from "../../home.constants";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 function BrowserBody({
   work_data,
@@ -56,13 +58,19 @@ function BrowserBody({
                       transition={{ duration: BROWSER_ANIMATION_DURATION }}
                       whileHover={{ color: "#fff" }}
                       className={cx(
-                        "ml-2 w-[120px] rounded-t-md py-2 text-center text-sm font-bold leading-5 tracking-normal text-slate-500",
+                        "relative ml-2 w-[120px] rounded-t-md py-2 text-center text-sm font-bold leading-7 tracking-normal text-slate-500",
                         {
                           "!text-white": selectedTab === item.value,
                         },
                       )}
                     >
                       {item.title}
+                      {selectedTab === item.value && (
+                        <motion.div
+                          className={styles.underline}
+                          layoutId="underline"
+                        />
+                      )}
                     </motion.div>
                   </AnimatePresence>
                 </Tabs.Trigger>
@@ -94,12 +102,27 @@ function BrowserBody({
                       ease: "easeIn",
                     }}
                   >
-                    <div className="flex flex-col gap-16">
-                      {item.description}
+                    <div className="flex flex-col gap-8 text-white">
+                      <div className="mt-2 w-full rounded-2xl bg-[#30363D] px-4 py-4 text-white">
+                        <Balancer>
+                          <span
+                            className="text-lg font-bold"
+                            style={{ color: item.color }}
+                          >
+                            {item.descriptionTitle}
+                          </span>
+                          {item.description}
+                        </Balancer>
+                      </div>
+
                       <div className="grid grid-cols-2 grid-rows-2 gap-x-4 gap-y-6">
                         {item.projects.map(
                           (
-                            { project_title }: { project_title: string },
+                            {
+                              project_title,
+                            }: {
+                              project_title: string;
+                            },
                             index: number,
                           ) => (
                             <BrowserBodyCards
@@ -128,6 +151,7 @@ function BrowserBody({
           projectTitle={projects[selectedProjectIndex].project_title}
           accentColor={projects[selectedProjectIndex].color}
           techUsed={projects[selectedProjectIndex].tech_used}
+          projectDescription={projects[selectedProjectIndex].description}
         />
       </div>
     </div>

@@ -2,7 +2,6 @@
 
 import { motion, Variants } from "framer-motion";
 import { GraduationCap } from "lucide-react";
-import Image from "next/image";
 import styles from "./timeline.module.css";
 import {
   EDUCATION_ANIMATION_DURATION,
@@ -11,21 +10,6 @@ import {
 } from "../../home.constants";
 import Parallax from "../../../layout/parllax";
 
-const start_timeline_variants: Variants = {
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: EDUCATION_ANIMATION_DURATION,
-    },
-  },
-  hidden: {
-    opacity: 0,
-    transition: {
-      delay: EXIT_ANIMATION_DELAY_TIMELINE,
-      when: "afterChildren",
-    },
-  },
-};
 const icon_timeline_variants: Variants = {
   visible: {
     opacity: 1,
@@ -56,38 +40,29 @@ const section_timeline_variants: Variants = {
   },
 };
 
-function TimelineStart({
-  isParentInView,
+function TimelineMiddle({
   shouldTriggerTimeline,
 }: {
-  isParentInView: boolean;
   shouldTriggerTimeline: boolean;
 }) {
   return (
     <div className="flex w-1/6 flex-col md:px-4">
       <Parallax offset={PARLLAX_OFFSET_UP}>
         <motion.div
+          // animate={shouldTriggerTimeline ? { height: 400 } : ""}
           initial="hidden"
-          animate={isParentInView ? "visible" : "hidden"}
+          animate={shouldTriggerTimeline ? "visible" : "hidden"}
           exit="hidden"
-          variants={start_timeline_variants}
-        >
-          <Image
-            priority
-            src="assets/lines-hero-first.svg"
-            height={100}
-            width={500}
-            alt="whoops"
-            className="ml-2 mt-[-30vh] max-w-[90vw] md:mt-[-350px] lg:max-w-[100vw]"
-          />
-        </motion.div>
+          variants={section_timeline_variants}
+          className="ml-5 w-[4px] rounded bg-gradient-to-b from-rose-300 via-red-700 to-red-900"
+        ></motion.div>
         <motion.div
           initial="hidden"
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
           className={styles.iconGlow}
           variants={icon_timeline_variants}
         >
-          <GraduationCap strokeWidth="0.09rem" color="#222" size={45} />
+          <GraduationCap strokeWidth="0.2rem" color="#fff" size={40} />
         </motion.div>
         <motion.div
           // animate={shouldTriggerTimeline ? { height: 400 } : ""}
@@ -95,11 +70,11 @@ function TimelineStart({
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
           exit="hidden"
           variants={section_timeline_variants}
-          className="ml-5 w-[4px] rounded bg-gradient-to-b from-purple-500 via-green-500 to-emerald-500 opacity-90"
+          className="ml-5 w-[4px] rounded bg-gradient-to-b from-red-700 via-rose-200 to-blue-100"
         ></motion.div>
       </Parallax>
     </div>
   );
 }
 
-export default TimelineStart;
+export default TimelineMiddle;
