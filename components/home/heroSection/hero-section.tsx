@@ -5,6 +5,7 @@ import { useState } from "react";
 import styles from "./styles.module.css";
 import cx from "classnames";
 import Balancer from "react-wrap-balancer";
+import Image from "next/image";
 
 const heartVariants: Variants = {
   hover: {
@@ -85,7 +86,13 @@ function HeroSection() {
             size={35}
           />
         </motion.div>
-        js
+        <Image
+          priority
+          src={"/assets/tech/js.png"}
+          alt="js"
+          width={40}
+          height={10}
+        />
       </div>
     </div>
   );

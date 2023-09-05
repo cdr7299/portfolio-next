@@ -6,6 +6,7 @@ import {
 import Balancer from "react-wrap-balancer";
 import Parallax from "@/components/layout/parllax";
 import Image from "next/image";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const project_section_variants: Variants = {
   visible: {
@@ -54,10 +55,11 @@ function BrowserBodyProjects({
       initial="hidden"
       animate={shouldAnimate ? "visible" : "hidden"}
       exit="hidden"
+      layoutId="test123213"
     >
       <div
         key={projectTitle}
-        className="flex min-h-[45%] flex-col rounded-xl border-[0.1rem] border-[#16191c] bg-[#30363D] p-4 shadow-lg shadow-[#16191c] "
+        className="flex min-h-[20%] flex-col rounded-xl border-[0.1rem] border-[#16191c] bg-[#30363D] p-4 shadow-lg shadow-[#16191c] "
       >
         <Parallax offset={PARLLAX_OFFSET_DOWN / 4}>
           <h2 className="prose mb-6 border-b-[0.1rem] border-[#16191c]  pb-2 text-center font-semibold tracking-wide text-slate-100 lg:prose-xl">
@@ -68,7 +70,7 @@ function BrowserBodyProjects({
               <motion.li
                 variants={tech_section_variants}
                 key={title}
-                className="flex items-center gap-4 rounded-lg  bg-[#161b22] px-6 py-2 shadow"
+                className="flex items-center gap-2 rounded-lg  bg-[#161b22] px-6 py-1 shadow"
               >
                 <Image src={icon} width={80} height={10} alt="icon" />
                 {title}
@@ -77,8 +79,27 @@ function BrowserBodyProjects({
           </ul>
         </Parallax>
       </div>
-      <motion.div className="flex min-h-[45%] flex-col rounded-xl border-[0.1rem] border-[#16191c] bg-[#30363D] p-8 shadow-lg shadow-[#16191c]">
-        {projectDescription}
+      <motion.div
+        layoutId="asdtest123213"
+        layout
+        transition={{ duration: 0.3, ease: "easeIn", type: "tween" }}
+        className="flex min-h-[20%] flex-col  rounded-xl border-[0.1rem] border-[#16191c] bg-[#30363D] p-8 shadow-lg shadow-[#16191c]"
+      >
+        {/* <Balancer> */}
+        <ReactMarkdown
+          components={{
+            h1: ({ node, ...props }) => (
+              <h1
+                {...props}
+                className="mb-4 !text-sm font-medium transition-colors md:!text-2xl "
+              />
+            ),
+          }}
+        >
+          {projectDescription}
+        </ReactMarkdown>
+
+        {/* </Balancer> */}
       </motion.div>
     </motion.div>
   );
