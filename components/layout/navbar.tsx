@@ -14,7 +14,7 @@ export default function NavBar({ session }: { session: Session | null }) {
 
   return (
     <>
-      <SignInModal />
+      {/* <SignInModal /> */}
       <div
         className={`fixed top-0 hidden w-full justify-center md:flex ${
           scrolled
@@ -41,18 +41,18 @@ export default function NavBar({ session }: { session: Session | null }) {
               <UserDropdown session={session} />
             ) : (
               <button
-                className="rounded-full border border-black bg-black p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black"
+                className="ml-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-600 shadow-md transition-colors hover:border-gray-800 hover:bg-black hover:text-white dark:bg-black dark:text-white"
                 onClick={() => setShowSignInModal(true)}
               >
-                Get In Touch
+                Get in touch
               </button>
             )}
-            <button
+            {/* <button
               className="ml-2 space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-600 shadow-md transition-colors hover:border-gray-800 hover:bg-black hover:text-white"
               onClick={() => setShowSignInModal(true)}
             >
               Blog
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Balancer from "react-wrap-balancer";
 import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Timeline from "./components/timeline";
 import Card from "../card";
 import { PARLLAX_OFFSET_DOWN, PARLLAX_OFFSET_UP } from "../home.constants";
@@ -11,7 +11,8 @@ import { EDUCATION_DATA } from "./education.constants";
 import { INTRO_CARD_VARIANTS, TITLE_VARIANTS } from "./education.anim";
 import Parallax from "@/components/layout/parllax";
 import ParallaxCard from "@/components/layout/parallaxCards/parallaxCards";
-import { EducationData } from "./education.types";
+import { EducationData, EducationProject } from "./education.types";
+import { useProjectsModal } from "./components/projects-modal";
 
 function Education() {
   const containerRefTop = useRef<HTMLDivElement>(null);
@@ -26,11 +27,18 @@ function Education() {
   });
   const shouldTriggerTimeline = inViewMiddle?.isIntersecting || false;
 
+  const [selectedProjectList, setSelectedProjectList] =
+    useState<EducationProject[]>();
+  const { ProjectsModal, setShowProjectsModal } =
+    useProjectsModal(selectedProjectList);
+
   return (
     <div
       className="flex min-h-[75rem] w-full md:min-h-[53rem]"
       ref={containerRefTop}
     >
+      <ProjectsModal />
+
       <Timeline
         shouldTriggerTimeline={shouldTriggerTimeline}
         isParentInView={inViewTop?.isIntersecting || false}
@@ -76,8 +84,11 @@ function Education() {
                     school={card_item.school}
                     key={card_item.title}
                     description={card_item.description}
+                    projects={card_item.projects}
                     title={card_item.title}
                     isRendered={shouldTriggerTimeline}
+                    setShowProjectsModal={setShowProjectsModal}
+                    setSelectedProjectList={setSelectedProjectList}
                   ></Card>
                 );
               })}

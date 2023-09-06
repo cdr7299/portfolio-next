@@ -34,12 +34,18 @@ export default function Card({
   school,
   large,
   isRendered = false,
+  setShowProjectsModal,
+  projects,
+  setSelectedProjectList,
 }: {
   title: EducationData["title"];
   description: EducationData["description"];
   school: EducationData["school"];
   large?: boolean;
   isRendered?: boolean;
+  setShowProjectsModal: any;
+  setSelectedProjectList: any;
+  projects: EducationData["projects"];
 }) {
   const [scope, animate] = useAnimate();
 
@@ -72,10 +78,10 @@ export default function Card({
             ref={scope}
             className="text-md prose w-1/2 font-bold tracking-tight md:text-3xl md:tracking-normal"
           >
-            <div className=" text-green-500">
+            <div className=" text-emerald-500">
               <Balancer>{title}</Balancer>
             </div>
-            <div className=" text-green-900">
+            <div className=" text-emerald-800">
               <Balancer>{school}</Balancer>
             </div>
           </motion.div>
@@ -88,27 +94,22 @@ export default function Card({
             className="flex w-1/2 flex-col items-end justify-start gap-1 text-right text-base leading-normal text-gray-500 lg:text-2xl"
           >
             {description}
-            <motion.button
-              className={
-                "relative rounded-2xl bg-gray-800/60 px-6 py-2  text-sm text-white disabled:cursor-not-allowed lg:text-lg"
-              }
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.4 }}
-              disabled
-              // onClick={(prev) => setShowDemoModal(true)}
-            >
-              See My Projects
-            </motion.button>
+            {projects.length ? (
+              <motion.button
+                className={
+                  "relative mt-2 rounded-2xl bg-gray-800/60 px-6  py-2 text-sm text-white disabled:cursor-not-allowed lg:text-lg"
+                }
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.4 }}
+                onClick={() => {
+                  setShowProjectsModal(true);
+                  setSelectedProjectList(projects);
+                }}
+              >
+                See My Projects
+              </motion.button>
+            ) : null}
           </motion.div>
-          {/* <motion.div
-          initial="hidden"
-          animate={isRendered ? "visible" : "hidden"}
-          exit="hidden"
-          variants={card_variants}
-          className="bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-xl font-bold text-transparent md:text-3xl md:font-normal"
-          >
-          
-        </motion.div> */}
         </div>
       </div>
     </>

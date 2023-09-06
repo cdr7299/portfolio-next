@@ -12,7 +12,7 @@ function Social() {
   const containerRefMiddle = useRef<HTMLDivElement>(null);
 
   const inViewMiddle = useIntersectionObserver(containerRefMiddle, {
-    threshold: 0.3,
+    threshold: 0.5,
     rootMargin: "-100px",
   });
   const shouldTriggerTimeline = inViewMiddle?.isIntersecting || false;
