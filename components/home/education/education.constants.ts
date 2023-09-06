@@ -1,4 +1,6 @@
-export const EDUCATION_DATA = [
+import { EducationData } from "./education.types";
+
+export const EDUCATION_DATA: EducationData[] = [
   {
     title: "Master of Engineering",
     school: "BITS Pilani, Goa Campus",

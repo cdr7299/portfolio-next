@@ -11,6 +11,7 @@ import { EDUCATION_DATA } from "./education.constants";
 import { INTRO_CARD_VARIANTS, TITLE_VARIANTS } from "./education.anim";
 import Parallax from "@/components/layout/parllax";
 import ParallaxCard from "@/components/layout/parallaxCards/parallaxCards";
+import { EducationData } from "./education.types";
 
 function Education() {
   const containerRefTop = useRef<HTMLDivElement>(null);
@@ -27,14 +28,14 @@ function Education() {
 
   return (
     <div
-      className="flex min-h-[45rem] w-full md:min-h-[53rem]"
+      className="flex min-h-[75rem] w-full md:min-h-[53rem]"
       ref={containerRefTop}
     >
       <Timeline
         shouldTriggerTimeline={shouldTriggerTimeline}
         isParentInView={inViewTop?.isIntersecting || false}
       />
-      <div className="flex w-5/6 flex-col gap-10 ">
+      <div className="flex w-5/6 flex-col gap-16">
         <Parallax offset={PARLLAX_OFFSET_DOWN}>
           <div className="w-full font-display text-xl font-bold tracking-[0.01em] drop-shadow-sm md:text-2xl md:leading-[3rem] lg:text-4xl">
             <motion.div
@@ -64,12 +65,12 @@ function Education() {
               initial="hidden"
               animate={shouldTriggerTimeline ? "visible" : "hidden"}
               variants={TITLE_VARIANTS}
-              className="mb-8 mt-2 font-display text-xl font-bold tracking-[0.01em] md:text-2xl md:leading-[3rem] lg:text-4xl"
+              className="mb-16 font-display text-xl font-bold tracking-[0.01em] md:text-2xl md:leading-[3rem] lg:text-4xl"
             >
               <Balancer>Education</Balancer>
             </motion.div>
             <div className="flex w-full flex-col">
-              {EDUCATION_DATA.map((card_item) => {
+              {EDUCATION_DATA.map((card_item: EducationData) => {
                 return (
                   <Card
                     school={card_item.school}

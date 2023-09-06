@@ -9,20 +9,20 @@ import BrowserBodyProjects from "./browserBodyProjects";
 import React, { useRef, useState } from "react";
 import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
 import { BROWSER_ANIMATION_DURATION } from "../../home.constants";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { WorkData } from "../workEx.types";
 
 function BrowserBody({
   work_data,
   selectedTab,
   onTabChange,
 }: {
-  work_data: any;
+  work_data: WorkData[];
   selectedTab: string;
   onTabChange: (arg: string) => void;
 }) {
   const { projects } = work_data.find(
     (item: any) => item.value === selectedTab,
-  );
+  ) || { projects: [] };
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const inViewTop = useIntersectionObserver(containerRef, {
@@ -147,9 +147,8 @@ function BrowserBody({
       <div className={`${styles.browserBodySections} hidden lg:block`}>
         <BrowserBodyProjects
           shouldAnimate={inViewTop?.isIntersecting || false}
-          projectTitle={projects[selectedProjectIndex].project_title}
-          accentColor={projects[selectedProjectIndex].color}
-          techUsed={projects[selectedProjectIndex].tech_used}
+          projectTitle={projects[selectedProjectIndex]?.project_title}
+          techUsed={projects[selectedProjectIndex]?.tech_used}
           projectDescription={projects[selectedProjectIndex].description}
         />
       </div>

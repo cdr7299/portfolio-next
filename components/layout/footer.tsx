@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <div className="absolute w-full border-t border-gray-700 py-5 text-center">
       <p className="text-gray-500">
-        Supposed to be a footer
+        Made with NextJS 13
         <a
           className="font-medium text-gray-800 underline transition-colors"
           href="https://twitter.com/steventey"

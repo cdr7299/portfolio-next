@@ -10,6 +10,7 @@ import {
   PARLLAX_OFFSET_UP,
 } from "../../home.constants";
 import Parallax from "../../../layout/parllax";
+import { useTheme } from "next-themes";
 
 const start_timeline_variants: Variants = {
   visible: {
@@ -44,11 +45,16 @@ const icon_timeline_variants: Variants = {
 
 const section_timeline_variants: Variants = {
   visible: {
-    height: 400,
-    transition: { delay: 0.3, duration: EDUCATION_ANIMATION_DURATION },
+    scaleY: 1,
+    originY: 0,
+    transition: {
+      delay: 0.3,
+      duration: EDUCATION_ANIMATION_DURATION,
+    },
   },
   hidden: {
-    height: "0",
+    scaleY: 0,
+    originY: 0,
     transition: {
       delay: EXIT_ANIMATION_DELAY_TIMELINE,
       duration: EDUCATION_ANIMATION_DURATION,
@@ -63,8 +69,10 @@ function TimelineStart({
   isParentInView: boolean;
   shouldTriggerTimeline: boolean;
 }) {
+  const { resolvedTheme } = useTheme();
+
   return (
-    <div className="flex w-[50px] flex-col md:px-4 lg:w-[150px]">
+    <div className="relative -z-10 flex w-[50px] flex-col md:px-4 lg:w-[150px]">
       <Parallax offset={PARLLAX_OFFSET_UP}>
         <motion.div
           initial="hidden"
@@ -87,7 +95,11 @@ function TimelineStart({
           className={styles.iconGlow}
           variants={icon_timeline_variants}
         >
-          <GraduationCap strokeWidth="0.09rem" color="#222" size={45} />
+          <GraduationCap
+            strokeWidth="0.1rem"
+            color={resolvedTheme === "dark" ? "#bbb" : "#222"}
+            size={40}
+          />
         </motion.div>
         <motion.div
           // animate={shouldTriggerTimeline ? { height: 400 } : ""}
@@ -95,7 +107,7 @@ function TimelineStart({
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
           exit="hidden"
           variants={section_timeline_variants}
-          className="ml-5 w-[4px] rounded bg-gradient-to-b from-purple-500 via-green-500 to-emerald-500 opacity-90"
+          className="ml-[1.3rem] h-full w-[4px] rounded-sm bg-gradient-to-b from-purple-400 via-green-500 to-emerald-500 opacity-90"
         ></motion.div>
       </Parallax>
     </div>

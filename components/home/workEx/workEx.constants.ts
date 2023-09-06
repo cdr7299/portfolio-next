@@ -1,4 +1,6 @@
-const work_data = [
+import { WorkData } from "./workEx.types";
+
+const work_data: WorkData[] = [
   {
     title: "Gan Studio",
     value: "Gan.ai",
