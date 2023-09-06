@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./parallaxCards.module.css";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
@@ -34,9 +36,6 @@ function ParallaxCard({
   function mouseMoveEvent(e: MouseEvent) {
     if (containerRef?.current) {
       const { width, height } = containerRef.current.getBoundingClientRect();
-      console.log("container: ", width, height);
-      console.log("ptr: y x ", e.offsetX, e.offsetY);
-
       let oldRangeY = width - 0.0;
       let newRangeY = 1.5 - -1.5;
       let newY = ((e.offsetX - 0) * newRangeY) / oldRangeY + -1.5;
@@ -46,7 +45,6 @@ function ParallaxCard({
       containerRef.current.style.setProperty("--x1", String(e.offsetX));
       containerRef.current.style.setProperty("--y1", String(e.offsetY));
       containerRef.current.style.setProperty("--back1", accentColor || "");
-      // console.log({ y: -offsetXFromCenter / 360, x: -offsetYFromCenter / 360 });
       setMouse({
         x: newX,
         y: -newY,

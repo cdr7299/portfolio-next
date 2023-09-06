@@ -11,7 +11,7 @@ import { useDemoModal } from "./demo-modal";
 const card_variants: Variants = {
   visible: {
     opacity: 1,
-    y: 0,
+    x: 0,
     transition: {
       delay: 0.5,
       duration: EDUCATION_ANIMATION_DURATION,
@@ -20,7 +20,7 @@ const card_variants: Variants = {
   },
   hidden: {
     opacity: 0,
-    y: -100,
+    x: -100,
     transition: {
       when: "afterChildren",
       duration: EDUCATION_ANIMATION_DURATION,
@@ -83,16 +83,14 @@ export default function Card({
             </div>
           </motion.div>
 
-          <div className="flex w-1/2 flex-col items-end justify-start gap-1">
-            <motion.div
-              initial="hidden"
-              animate={isRendered ? "visible" : "hidden"}
-              exit="hidden"
-              variants={card_variants}
-              className="text-right text-base leading-normal text-gray-500 lg:text-2xl"
-            >
-              {description}
-            </motion.div>
+          <motion.div
+            initial="hidden"
+            animate={isRendered ? "visible" : "hidden"}
+            exit="hidden"
+            variants={card_variants}
+            className="flex w-1/2 flex-col items-end justify-start gap-1 text-right text-base leading-normal text-gray-500 lg:text-2xl"
+          >
+            {description}
             <motion.button
               className={
                 "relative rounded-2xl bg-gray-800/60 px-6 py-2  text-sm text-white disabled:cursor-not-allowed lg:text-lg"
@@ -104,7 +102,7 @@ export default function Card({
             >
               See My Projects
             </motion.button>
-          </div>
+          </motion.div>
           {/* <motion.div
           initial="hidden"
           animate={isRendered ? "visible" : "hidden"}

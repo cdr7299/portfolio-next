@@ -47,7 +47,7 @@ const work_data = [
     value: "Tekion.com",
     descriptionTitle: "Software Engineer ",
     description:
-      "at Tekion. First time deployed production code here. Time well spent with a large-scale React SPA, a consumer-facing platform and learning the basics of JS ecosystem.",
+      "at Tekion. Time well spent with a large-scale React SPA, a consumer-facing platform and learning the basics of JS ecosystem.",
     projects: [
       {
         project_title: "DMS - F&I",

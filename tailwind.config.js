@@ -16,7 +16,7 @@ module.exports = {
         },
       },
       backgroundImage: {
-        'gradient-dark': `linear-gradient(to right, #0d1117, #0d1117)`,
+        'gradient-dark': `linear-gradient(to bottom right, #0d1117, #0c0e1c)`,
         'gradient-light': `linear-gradient(to bottom right, ${colors.indigo[200]}, ${colors.rose[100]}, ${colors.cyan[200]})`,
         'text-gradient-dark': `linear-gradient(to bottom right, ${colors.black}, ${colors.stone[900]})`,
         'text-gradient-light': `linear-gradient(to right, ${colors.stone[100]}, ${colors.stone[900]})`,
