@@ -7,6 +7,7 @@ import Balancer from "react-wrap-balancer";
 import Parallax from "@/components/layout/parllax";
 import Image from "next/image";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { Project } from "../workEx.types";
 
 const project_section_variants: Variants = {
   visible: {
@@ -36,16 +37,14 @@ const tech_section_variants: Variants = {
 
 function BrowserBodyProjects({
   projectTitle,
-  accentColor,
   techUsed,
   shouldAnimate,
   projectDescription,
 }: {
-  projectTitle: string;
-  accentColor: string;
-  techUsed: any[];
+  projectTitle: Project["project_title"];
+  techUsed: Project["tech_used"];
   shouldAnimate: boolean;
-  projectDescription: string;
+  projectDescription: Project["description"];
 }) {
   return (
     <Parallax offset={PARLLAX_OFFSET_DOWN / 4}>
@@ -85,10 +84,9 @@ function BrowserBodyProjects({
           transition={{ duration: 0.3, ease: "easeIn", type: "tween" }}
           className="flex min-h-[20%] flex-col  rounded-xl border-[0.1rem] border-[#16191c] bg-[#30363D] p-8 shadow-lg shadow-[#16191c]"
         >
-          {/* <Balancer> */}
           <ReactMarkdown
             components={{
-              h1: ({ node, ...props }) => (
+              h1: ({ ...props }) => (
                 <h1
                   {...props}
                   className="mb-4 !text-sm font-medium transition-colors md:!text-2xl "
@@ -98,8 +96,6 @@ function BrowserBodyProjects({
           >
             {projectDescription}
           </ReactMarkdown>
-
-          {/* </Balancer> */}
         </motion.div>
       </motion.div>
     </Parallax>

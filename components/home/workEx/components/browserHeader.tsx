@@ -9,8 +9,9 @@ import { motion } from "framer-motion";
 
 import styles from "./styles.module.css";
 import { BROWSER_ANIMATION_DURATION } from "../../home.constants";
+import { WorkData } from "../workEx.types";
 
-function BrowserHeader({ title }: { title: string }) {
+function BrowserHeader({ title }: { title: WorkData["title"] }) {
   return (
     <div className={styles.browserHeader}>
       <div className="invisible ml-6 flex items-center md:visible">

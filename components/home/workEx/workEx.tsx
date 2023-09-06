@@ -11,7 +11,6 @@ import { PARLLAX_OFFSET_DOWN } from "../home.constants";
 function WorkEx() {
   const [selectedTab, setSelectedTab] = useState<string>(work_data[0].value);
   const selectedTabData = work_data.find((item) => item.value === selectedTab);
-
   const onTabChange = useCallback((item: string) => {
     setSelectedTab(item);
   }, []);

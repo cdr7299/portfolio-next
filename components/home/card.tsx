@@ -1,12 +1,11 @@
 import { Variants, motion, useAnimate } from "framer-motion";
-import ReactMarkdown from "react-markdown";
 import Balancer from "react-wrap-balancer";
 import {
   EDUCATION_ANIMATION_DURATION,
   EXIT_ANIMATION_DELAY,
 } from "./home.constants";
-import { useEffect, useState } from "react";
-import { useDemoModal } from "./demo-modal";
+import { useEffect } from "react";
+import { EducationData } from "./education/education.types";
 
 const card_variants: Variants = {
   visible: {
@@ -36,9 +35,9 @@ export default function Card({
   large,
   isRendered = false,
 }: {
-  title: string;
-  description: string;
-  school: string;
+  title: EducationData["title"];
+  description: EducationData["description"];
+  school: EducationData["school"];
   large?: boolean;
   isRendered?: boolean;
 }) {
@@ -59,8 +58,6 @@ export default function Card({
       );
     }
   }, [animate, isRendered, scope]);
-
-  const [showCard, setShowCard] = useState(false);
 
   return (
     <>
