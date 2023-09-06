@@ -49,9 +49,10 @@ function Education() {
               >
                 {/* <Parallax offset={PARLLAX_OFFSET_DOWN}> */}
                 <Balancer ratio={0.5}>
-                  Software Engineer with 3 years of experience writing
-                  JavaScript. Enjoy working with React, Next and Framer. I love
-                  exploring the opinionated javascript world.
+                  <span className="text-purple-600">Software Engineer</span>{" "}
+                  with 3 years of experience writing JavaScript. Enjoy working
+                  with React, Next and Framer. I love exploring the opinionated
+                  javascript world.
                 </Balancer>
               </ParallaxCard>
             </motion.div>

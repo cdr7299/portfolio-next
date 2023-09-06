@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Share2 } from "lucide-react";
 import styles from "./timeline.module.css";
 import {
   EDUCATION_ANIMATION_DURATION,
@@ -28,14 +28,35 @@ const icon_timeline_variants: Variants = {
 
 const section_timeline_variants: Variants = {
   visible: {
-    height: 600,
-    transition: { delay: 0.3, duration: EDUCATION_ANIMATION_DURATION },
+    height: 150,
+    transition: {
+      delay: 0.3,
+      duration: EDUCATION_ANIMATION_DURATION,
+    },
   },
   hidden: {
     height: "0",
     transition: {
       delay: EXIT_ANIMATION_DELAY_TIMELINE,
       duration: EDUCATION_ANIMATION_DURATION,
+    },
+  },
+};
+const section_timeline_variants2: Variants = {
+  visible: {
+    height: 850,
+    transition: {
+      delay: 0.3,
+      duration: EDUCATION_ANIMATION_DURATION,
+      ease: "easeOut",
+    },
+  },
+  hidden: {
+    height: "0",
+    transition: {
+      delay: EXIT_ANIMATION_DELAY_TIMELINE,
+      duration: EDUCATION_ANIMATION_DURATION,
+      ease: "easeOut",
     },
   },
 };
@@ -54,23 +75,23 @@ function TimelineMiddle({
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
           exit="hidden"
           variants={section_timeline_variants}
-          className="ml-5 w-[4px] rounded bg-gradient-to-b from-red-200 via-red-400 to-red-500"
+          className="ml-5 w-[4px] rounded bg-gradient-to-b from-red-200  to-red-400"
         ></motion.div>
-        {/* <motion.div
+        <motion.div
           initial="hidden"
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
           className={styles.iconGlow}
           variants={icon_timeline_variants}
         >
-          <GraduationCap strokeWidth="0.2rem" color="#fff" size={40} />
-        </motion.div> */}
+          <Share2 strokeWidth="0.1rem" color="#fff" size={40} />
+        </motion.div>
         <motion.div
           // animate={shouldTriggerTimeline ? { height: 400 } : ""}
           initial="hidden"
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
           exit="hidden"
-          variants={section_timeline_variants}
-          className="-mt-1 ml-5 w-[4px] rounded bg-gradient-to-b from-red-500 via-red-800 to-red-900"
+          variants={section_timeline_variants2}
+          className="-mt-1 ml-5 h-full w-[4px] rounded bg-gradient-to-b from-red-400 via-red-600 to-red-800"
         ></motion.div>
       </Parallax>
     </div>

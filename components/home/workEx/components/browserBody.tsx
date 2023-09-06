@@ -24,7 +24,6 @@ function BrowserBody({
     (item: any) => item.value === selectedTab,
   );
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(0);
-  console.log(selectedProjectIndex);
   const containerRef = useRef<HTMLDivElement>(null);
   const inViewTop = useIntersectionObserver(containerRef, {
     threshold: 0.2,
