@@ -37,6 +37,7 @@ const work_data: WorkData[] = [
         tech_used: [
           { title: "", icon: "/assets/tech/react1.png" },
           { title: "", icon: "/assets/tech/redux.png" },
+          { title: "NX", icon: "/assets/tech/nx.webp" },
           { title: "", icon: "/assets/tech/mui.webp" },
         ],
       },
@@ -58,8 +59,7 @@ const work_data: WorkData[] = [
           { title: "", icon: "/assets/tech/react1.png" },
           { title: "", icon: "/assets/tech/redux.png" },
           { title: "antd", icon: "/assets/tech/antd.png" },
-          { title: "pusherjs", icon: "/assets/tech/pusherjs.png" },
-          { title: "i18n", icon: "/assets/tech/i18n.png" },
+          { title: "", icon: "/assets/tech/pusher.svg" },
         ],
       },
       {
@@ -70,8 +70,7 @@ const work_data: WorkData[] = [
           { title: "", icon: "/assets/tech/next3.png" },
           { title: "", icon: "/assets/tech/redux.png" },
           { title: "", icon: "/assets/tech/mui.webp" },
-          { title: "pusherjs", icon: "/assets/tech/pusherjs.png" },
-          { title: "i18n", icon: "/assets/tech/i18n.png" },
+          { title: "", icon: "/assets/tech/pusher.svg" },
         ],
       },
     ],
