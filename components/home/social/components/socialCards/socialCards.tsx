@@ -83,8 +83,8 @@ function SocialCards({
             variants={card_container}
           >
             <ParallaxCard
-              accentColor="rgb(210 50 80)"
-              containerClasses="rounded !border-[0] dark:!border-[0.15rem] dark:!border-[#30363d] !bg-red-800/80 dark:!bg-[#161b22] shadow-lg shadow-red-900/50 dark:shadow-[0] !gap-16 bg-slate-800 px-8 !py-16 items-center justify-between"
+              accentColor="#F0D3D766"
+              containerClasses="rounded !border-[0] dark:!border-[0.15rem] dark:!border-[#30363d] !bg-red-700/40 dark:!bg-[#161b22] shadow-lg shadow-red-900/50 dark:shadow-[0] !gap-16 bg-slate-800 px-8 !py-16 items-center justify-between"
             >
               <>
                 {col.map((card: Column) => {

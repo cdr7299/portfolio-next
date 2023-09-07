@@ -38,7 +38,6 @@ function Education() {
       ref={containerRefTop}
     >
       <ProjectsModal />
-
       <Timeline
         shouldTriggerTimeline={shouldTriggerTimeline}
         isParentInView={inViewTop?.isIntersecting || false}

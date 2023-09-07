@@ -17,7 +17,6 @@ const ProjectsModal = ({
   setShowProjectsModal: Dispatch<SetStateAction<boolean>>;
   selectedProjectList: EducationProject[] | undefined;
 }) => {
-  console.log(selectedProjectList);
   if (!selectedProjectList?.length) return null;
   return (
     <Modal showModal={showProjectsModal} setShowModal={setShowProjectsModal}>

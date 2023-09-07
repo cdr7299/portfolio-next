@@ -9,17 +9,8 @@ import { Providers } from "./providers";
 
 export const metadata = {
   title: "Portfolio - Vineet",
-  description: "to add",
-  // "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
-  // twitter: {
-  //   card: "summary_large_image",
-  //   title: "Precedent - Building blocks for your Next.js project",
-  //   description:
-  //     "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
-  //   creator: "@cdr7299",
-  // },
-  // metadataBase: new URL("https://precedent.dev"),
-  themeColor: "#FFF",
+  description: "My Portfolio Site",
+  themeColor: "#0d1117",
 };
 
 export default async function RootLayout({
@@ -31,9 +22,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={cx(sfPro.variable, inter.variable)}>
         <Providers>
-          <div className="bg-gradient-light dark:bg-gradient-dark fixed h-full w-full transition-all duration-500" />
-          {/* <div className="fixed h-screen w-full bg-slate-950" /> */}
-          {/* <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-950 via-rose-50 to-cyan-900" /> */}
+          <div className="fixed h-full w-full bg-gradient-light transition-all duration-500 dark:bg-gradient-dark" />
           <Suspense fallback="...">
             {/* @ts-expect-error Server Component */}
             <Nav />
@@ -42,7 +31,6 @@ export default async function RootLayout({
             {children}
           </main>
           <Footer />
-          {/* <Analytics /> */}
         </Providers>
       </body>
     </html>
