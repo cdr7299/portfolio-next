@@ -79,6 +79,7 @@ function TimelineStart({
           animate={isParentInView ? "visible" : "hidden"}
           exit="hidden"
           variants={start_timeline_variants}
+          id="startTimeline"
         >
           <Image
             priority

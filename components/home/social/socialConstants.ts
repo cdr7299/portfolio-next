@@ -8,14 +8,14 @@ export const social_data: SocialData = {
     columns: [
       [
         {
-          accentColor: "#36343b",
+          accentColor: "#1ba0f144",
           title: "Download Resume",
           native: true,
           redirect: "",
           fontColor: "#fff",
         },
         {
-          accentColor: "#90c1aa",
+          accentColor: "#76e4dda2",
           title: "send me a message",
           native: true,
           redirect: "",

@@ -6,6 +6,7 @@ import {
 } from "./home.constants";
 import { useEffect } from "react";
 import { EducationData } from "./education/education.types";
+import Buttons from "../shared/buttons/buttons";
 
 const card_variants: Variants = {
   visible: {
@@ -95,19 +96,15 @@ export default function Card({
           >
             {description}
             {projects.length ? (
-              <motion.button
-                className={
-                  "relative mt-2 rounded-2xl bg-gray-800/60 px-6  py-2 text-sm text-white disabled:cursor-not-allowed lg:text-lg"
-                }
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.4 }}
+              <Buttons
+                className="mt-2"
                 onClick={() => {
                   setShowProjectsModal(true);
                   setSelectedProjectList(projects);
                 }}
               >
                 See My Projects
-              </motion.button>
+              </Buttons>
             ) : null}
           </motion.div>
         </div>

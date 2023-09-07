@@ -6,6 +6,7 @@ import styles from "./styles.module.css";
 import cx from "classnames";
 import Balancer from "react-wrap-balancer";
 import Image from "next/image";
+import Buttons from "@/components/shared/buttons/buttons";
 
 const heartVariants: Variants = {
   hover: {
@@ -28,6 +29,14 @@ const backgroundVariants: Variants = {
 
 function HeroSection() {
   const [isHovering, setIsHovering] = useState<boolean>(false);
+  const handleScroll = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const elem = document.getElementById("startTimeline");
+    window.scrollTo({
+      top: elem?.getBoundingClientRect().top,
+      behavior: "smooth",
+    });
+  };
   return (
     <div className="flex h-[calc(100vh-8rem)] w-full flex-col items-center justify-center text-left">
       {isHovering && <div className={styles.overlay}></div>}
@@ -94,6 +103,9 @@ function HeroSection() {
           height={10}
         />
       </div>
+      <Buttons className="mt-8 self-start" onClick={handleScroll}>
+        Start
+      </Buttons>
     </div>
   );
 }
