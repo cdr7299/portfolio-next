@@ -68,7 +68,7 @@ function BrowserBodyCards({
       }}
       ref={containerRef}
       key={projectTitle}
-      className={`${styles.browserBodyCard} prose text-2xl font-bold shadow shadow-slate-900`}
+      className={`${styles.browserBodyCard} prose text-lg font-bold shadow shadow-slate-900 md:text-2xl`}
       animate={{
         perspective: "700px",
         rotateX: mouse.x * 7,
