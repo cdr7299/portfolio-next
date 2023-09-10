@@ -93,7 +93,7 @@ function TimelineStart({
         <motion.div
           initial="hidden"
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
-          className={`${styles.iconGlow} mx-2 my-8 w-[30px] md:mx-1 md:h-[40px] md:w-[40px]`}
+          className={`${styles.iconGlow} mx-1 my-6 h-[30px] w-[30px] md:mx-1 md:my-8 md:h-[40px] md:w-[40px]`}
           variants={icon_timeline_variants}
         >
           <GraduationCap
@@ -108,7 +108,7 @@ function TimelineStart({
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
           exit="hidden"
           variants={section_timeline_variants}
-          className="ml-[1.3rem] h-full w-[4px] rounded-sm bg-gradient-to-b from-purple-400 via-green-500 to-emerald-500 opacity-90"
+          className="ml-[1.1rem] h-full w-[3px] rounded-sm bg-gradient-to-b from-purple-400 via-green-500 to-emerald-500 opacity-90 md:ml-[1.3rem] md:w-[4px]"
         ></motion.div>
       </Parallax>
     </div>
