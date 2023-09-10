@@ -3,7 +3,6 @@
 import Link from "next/link";
 import useScroll from "@/lib/hooks/use-scroll";
 import { useSignInModal } from "./sign-in-modal";
-import UserDropdown from "./user-dropdown";
 import { Session } from "next-auth";
 import ThemeSwitch from "../shared/themeSwitch";
 
@@ -28,7 +27,7 @@ export default function NavBar({ session }: { session: Session | null }) {
           <div className="flex items-center">
             <ThemeSwitch />
 
-            {session ? (
+            {/* {session ? (
               <UserDropdown session={session} />
             ) : (
               <button
@@ -37,7 +36,7 @@ export default function NavBar({ session }: { session: Session | null }) {
               >
                 Get in touch
               </button>
-            )}
+            )} */}
             {/* <button
               className="ml-2 space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-600 shadow-md transition-colors hover:border-gray-800 hover:bg-black hover:text-white"
               onClick={() => setShowSignInModal(true)}

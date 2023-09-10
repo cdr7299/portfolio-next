@@ -1,7 +1,6 @@
 import { Variants, motion } from "framer-motion";
 import { CardData, Column } from "../../social.types";
 import ParallaxCard from "@/components/layout/parallaxCards/parallaxCards";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from "./socialCards.module.css";
 import Image from "next/image";
@@ -68,7 +67,6 @@ function SocialCards({
   cardData: CardData;
 }) {
   const { columns } = cardData;
-  const router = useRouter();
   return (
     <motion.div
       initial="hidden"
@@ -85,7 +83,7 @@ function SocialCards({
           >
             <ParallaxCard
               accentColor="#A0A1DC"
-              containerClasses="rounded !border-[0] dark:!border-[0.15rem] dark:!border-[#30363d] !bg-red-700/40 dark:!bg-[#161b22] shadow-lg shadow-red-900/50 dark:shadow-[0] !gap-8 bg-slate-800 px-2 py-4 md:px-8 md:!py-16 items-center justify-around"
+              containerClasses="rounded !border-[0] dark:!border-[0.15rem] dark:!border-[#30363d] !bg-red-700/40 dark:!bg-[#161b22] shadow-lg shadow-red-900/50 dark:shadow-[0] !gap-8 bg-slate-800 p-4 md:px-8 md:!py-16 items-center justify-around"
               backgroundHighlight={false}
             >
               <>
@@ -98,7 +96,7 @@ function SocialCards({
                         backgroundColor: card.accentColor,
                         color: card.fontColor,
                       }}
-                      className={`relative z-10 flex h-full w-full cursor-pointer items-center justify-center rounded-xl px-6 py-2 text-center text-2xl font-bold text-slate-800 shadow-lg shadow-gray-900/70 md:h-[150px] md:w-[280px] `}
+                      className={`relative z-10 flex h-full w-full cursor-pointer items-center justify-center rounded-xl px-6 py-2 text-center text-2xl font-bold text-slate-800 shadow-lg  shadow-gray-900/70 md:h-[150px] md:w-[280px] `}
                     >
                       {card.icon && (
                         <Image

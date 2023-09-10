@@ -77,7 +77,7 @@ export default function Card({
           <motion.div
             initial={{ opacity: 0 }}
             ref={scope}
-            className="text-md prose w-1/2 font-bold tracking-tight md:text-3xl md:tracking-normal"
+            className="prose w-1/2 text-base font-bold tracking-tight md:text-3xl md:tracking-normal"
           >
             <div className=" text-emerald-500">
               <Balancer>{title}</Balancer>
@@ -92,7 +92,7 @@ export default function Card({
             animate={isRendered ? "visible" : "hidden"}
             exit="hidden"
             variants={card_variants}
-            className="flex w-1/2 flex-col items-end justify-start gap-1 text-right text-base leading-normal text-gray-500 lg:text-2xl"
+            className="mt-1 flex w-1/2 flex-col items-end justify-start gap-1 text-right text-sm leading-normal text-gray-500 lg:text-2xl"
           >
             {description}
             {projects.length ? (
