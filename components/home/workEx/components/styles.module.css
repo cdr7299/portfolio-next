@@ -65,8 +65,8 @@
   position: absolute;
   top: calc(var(--y, 0) * 1px - 50px);
   left: calc(var(--x, 0) * 1px - 50px);
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   opacity: 0;
   transition: opacity 0.3s;
   background: var(--back, rgb(255, 255, 255, 0.5));
