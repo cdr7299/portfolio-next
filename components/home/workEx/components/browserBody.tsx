@@ -57,7 +57,7 @@ function BrowserBody({
                       transition={{ duration: BROWSER_ANIMATION_DURATION }}
                       whileHover={{ color: "#fff" }}
                       className={cx(
-                        "relative ml-2 w-[120px] rounded-t-md py-2 text-center text-sm font-bold leading-7 tracking-normal text-slate-500",
+                        "relative ml-2 w-[120px] rounded-t-md py-2 text-center text-sm font-bold leading-7 tracking-normal text-slate-400",
                         {
                           "!text-white": selectedTab === item.value,
                         },
