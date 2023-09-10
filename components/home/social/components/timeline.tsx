@@ -29,7 +29,7 @@ const icon_timeline_variants: Variants = {
 
 const section_timeline_variants: Variants = {
   visible: {
-    height: 150,
+    height: 120,
     transition: {
       delay: 0.3,
       duration: EDUCATION_ANIMATION_DURATION,
@@ -45,7 +45,7 @@ const section_timeline_variants: Variants = {
 };
 const section_timeline_variants2: Variants = {
   visible: {
-    height: 850,
+    height: 750,
     transition: {
       delay: 0.3,
       duration: EDUCATION_ANIMATION_DURATION,
@@ -82,7 +82,7 @@ function TimelineMiddle({
         <motion.div
           initial="hidden"
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
-          className={`${styles.iconGlow}  w-[25px] sm:h-[1rem] md:my-6 md:ml-1 md:h-[35px] md:w-[35px] `}
+          className={`${styles.iconGlow}  my-8 w-[25px] sm:h-[1rem] md:mx-1 md:h-[35px] md:w-[35px] `}
           variants={icon_timeline_variants}
         >
           <Share2
