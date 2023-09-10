@@ -1,9 +1,10 @@
 import { Variants, motion } from "framer-motion";
 import { CardData, Column } from "../../social.types";
 import ParallaxCard from "@/components/layout/parallaxCards/parallaxCards";
-import Balancer from "react-wrap-balancer";
 import { useRouter } from "next/navigation";
-
+import Link from "next/link";
+import styles from "./socialCards.module.css";
+import Image from "next/image";
 const base_container: Variants = {
   visible: {
     transition: {
@@ -72,35 +73,51 @@ function SocialCards({
     <motion.div
       initial="hidden"
       animate={isContainerInView ? "visible" : "hidden"}
-      className="mt-16 flex w-full justify-around gap-8 px-16"
+      className="mt-16 flex w-full flex-col justify-around gap-4 md:flex-row md:gap-8 md:px-16"
       variants={base_container}
     >
       {columns.map((col: Column[], index) => {
         return (
           <motion.div
-            className="h-[35rem] w-[40%]"
+            className="h-[15rem] md:h-[32rem] md:w-[35%]"
             key={col[0].title + index}
             variants={card_container}
           >
             <ParallaxCard
-              accentColor="#F0D3D766"
-              containerClasses="rounded !border-[0] dark:!border-[0.15rem] dark:!border-[#30363d] !bg-red-700/40 dark:!bg-[#161b22] shadow-lg shadow-red-900/50 dark:shadow-[0] !gap-16 bg-slate-800 px-8 !py-16 items-center justify-between"
+              accentColor="#A0A1DC"
+              containerClasses="rounded !border-[0] dark:!border-[0.15rem] dark:!border-[#30363d] !bg-red-700/40 dark:!bg-[#161b22] shadow-lg shadow-red-900/50 dark:shadow-[0] !gap-8 bg-slate-800 px-2 py-4 md:px-8 md:!py-16 items-center justify-around"
+              backgroundHighlight={false}
             >
               <>
                 {col.map((card: Column) => {
                   return (
-                    <motion.button
-                      onClick={() => router.push(card.redirect)}
+                    <motion.div
                       key={card.title}
                       variants={tech_section_variants}
                       style={{
                         backgroundColor: card.accentColor,
                         color: card.fontColor,
                       }}
-                      className={`relative z-10 flex h-[200px] w-[320px] cursor-pointer items-center justify-center rounded-xl px-6 py-2 text-center text-3xl font-bold text-slate-800 shadow-lg shadow-gray-900/70 `}
+                      className={`relative z-10 flex h-full w-full cursor-pointer items-center justify-center rounded-xl px-6 py-2 text-center text-2xl font-bold text-slate-800 shadow-lg shadow-gray-900/70 md:h-[150px] md:w-[280px] `}
                     >
-                      <Balancer>{card.title}</Balancer>
-                    </motion.button>
+                      {card.icon && (
+                        <Image
+                          src={card.icon}
+                          width={50}
+                          height={50}
+                          alt="failed"
+                          className={card.iconClasses}
+                        />
+                      )}
+                      <Link
+                        className={styles.link}
+                        target="_blank"
+                        href={card.redirect}
+                        aria-disabled="false"
+                      >
+                        {card.title}
+                      </Link>
+                    </motion.div>
                   );
                 })}
               </>

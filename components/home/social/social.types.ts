@@ -14,4 +14,6 @@ export interface Column {
   native: boolean;
   redirect: string;
   fontColor: string;
+  icon?: string;
+  iconClasses?: string;
 }

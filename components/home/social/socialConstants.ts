@@ -16,7 +16,7 @@ export const social_data: SocialData = {
         },
         {
           accentColor: "#76e4dda2",
-          title: "send me a message",
+          title: "facebook",
           native: true,
           redirect: "",
           fontColor: "#fff",
@@ -24,15 +24,18 @@ export const social_data: SocialData = {
       ],
       [
         {
-          accentColor: "#0a66c2",
+          accentColor: "#ddd",
           title: "LinkedIn",
+          icon: "/assets/linkedIn.png",
           redirect: "https://www.linkedin.com/in/vineet-sawhney/",
           native: false,
-          fontColor: "#fff",
+          fontColor: "#333",
         },
         {
           accentColor: "#36343b",
           title: "Github",
+          icon: "/assets/tech/gh.png",
+          iconClasses: "mr-2",
           redirect: "https://github.com/cdr7299",
           native: false,
           fontColor: "#fff",

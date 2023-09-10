@@ -34,7 +34,7 @@ function Education() {
 
   return (
     <div
-      className="flex min-h-[75rem] w-full md:min-h-[53rem]"
+      className="flex  min-h-[20rem] w-full lg:min-h-[53rem]"
       ref={containerRefTop}
     >
       <ProjectsModal />
@@ -42,7 +42,7 @@ function Education() {
         shouldTriggerTimeline={shouldTriggerTimeline}
         isParentInView={inViewTop?.isIntersecting || false}
       />
-      <div className="flex w-5/6 flex-col gap-16">
+      <div className="flex w-5/6 flex-col gap-16 md:ml-6">
         <Parallax offset={PARLLAX_OFFSET_DOWN}>
           <div className="w-full font-display text-xl font-bold tracking-[0.01em] drop-shadow-sm md:text-2xl md:leading-[3rem] lg:text-4xl">
             <motion.div
@@ -54,13 +54,13 @@ function Education() {
               <ParallaxCard
                 accentColor="rgb(100 241 123)"
                 containerClasses="p-8 rounded-xl !border-[0] dark:!border-[0.15rem] dark:!border-[#30363d] !bg-purple-200 dark:!bg-[#161b22] shadow-md"
+                backgroundHighlight={true}
               >
                 {/* <Parallax offset={PARLLAX_OFFSET_DOWN}> */}
                 <Balancer ratio={0.5}>
                   <span className="text-purple-600">Software Engineer</span>{" "}
-                  with 3 years of experience writing JavaScript. Enjoy working
-                  with React, Next and Framer. I love exploring the opinionated
-                  javascript world.
+                  with 3 years of experience writing JavaScript. I enjoy working
+                  with React and building products from concept to delivery.
                 </Balancer>
               </ParallaxCard>
             </motion.div>

@@ -93,7 +93,7 @@ function TimelineStart({
         <motion.div
           initial="hidden"
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
-          className={styles.iconGlow}
+          className={`${styles.iconGlow}`}
           variants={icon_timeline_variants}
         >
           <GraduationCap

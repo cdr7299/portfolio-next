@@ -69,7 +69,7 @@ function TimelineMiddle({
 }) {
   const { resolvedTheme } = useTheme();
   return (
-    <div className="relative -z-10 -mt-8 ml-4 flex w-[20px] flex-col">
+    <div className="relative -z-10 -mt-8 ml-4 flex w-[10px] flex-col md:w-[20px]">
       <Parallax offset={PARLLAX_OFFSET_UP}>
         <motion.div
           // animate={shouldTriggerTimeline ? { height: 400 } : ""}
@@ -77,12 +77,12 @@ function TimelineMiddle({
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
           exit="hidden"
           variants={section_timeline_variants}
-          className="ml-5 w-[4px] rounded-sm bg-gradient-to-b from-red-200  to-red-400"
+          className="ml-2 w-[4px] rounded-sm bg-gradient-to-b from-red-200 to-red-400 md:ml-5"
         ></motion.div>
         <motion.div
           initial="hidden"
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
-          className={styles.iconGlow}
+          className={`${styles.iconGlow}  w-[25px] sm:h-[1rem] md:my-6 md:ml-1 md:h-[35px] md:w-[35px] `}
           variants={icon_timeline_variants}
         >
           <Share2
@@ -97,7 +97,7 @@ function TimelineMiddle({
           animate={shouldTriggerTimeline ? "visible" : "hidden"}
           exit="hidden"
           variants={section_timeline_variants2}
-          className="ml-5 h-full w-[4px] rounded-sm bg-gradient-to-b from-red-400 via-red-600 to-red-800"
+          className="ml-2 h-full w-[4px] rounded-sm bg-gradient-to-b from-red-400 via-red-600 to-red-800 md:ml-5"
         ></motion.div>
       </Parallax>
     </div>
