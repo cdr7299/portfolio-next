@@ -18,7 +18,7 @@ export default function NavBar({ session }: { session: Session | null }) {
             : "bg-white/0"
         } z-30 transition-all`}
       >
-        <div className="mx-5 flex h-16 w-full items-center justify-between">
+        <div className="mx-2 flex h-16 w-full items-center justify-between md:mx-5">
           <Link
             href="/"
             className="flex items-center font-display text-lg md:text-2xl "
