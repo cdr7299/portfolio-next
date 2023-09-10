@@ -14,14 +14,14 @@
   position: absolute;
   top: calc(var(--y1, 0) * 1px - 50px);
   left: calc(var(--x1, 0) * 1px - 50px);
-  width: 150px;
-  height: 150px;
+  width: 550px;
+  height: 280px;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.4s;
   background: var(--back1, rgb(255, 255, 255, 1));
-  filter: blur(80px);
+  filter: blur(200px);
 }
 
 .parallaxCardBase:hover::after {
-  opacity: 0.8;
+  opacity: 0.9;
 }

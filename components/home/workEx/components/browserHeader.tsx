@@ -14,7 +14,7 @@ import { WorkData } from "../workEx.types";
 function BrowserHeader({ title }: { title: WorkData["title"] }) {
   return (
     <div className={styles.browserHeader}>
-      <div className="invisible ml-6 flex items-center md:visible">
+      <div className="invisible flex items-center md:visible md:ml-6">
         <ChevronLeft className="text-[#787878]" />
         <ChevronRight className="text-[#787878]" />
       </div>

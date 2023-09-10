@@ -6,7 +6,7 @@ function Buttons({ className, children, ...rest }: ButtonProps) {
   return (
     <button
       {...rest}
-      className={`${className} group relative inline-flex items-center justify-center overflow-hidden rounded-full border-2 border-purple-500/80 px-8 py-2 text-lg font-medium text-indigo-600 shadow-md transition duration-300 ease-out`}
+      className={`${className} group relative inline-flex h-[50px] items-center justify-center overflow-hidden rounded-full border-2 border-purple-500/80 px-8 py-2 text-base font-medium text-indigo-600 shadow-md transition duration-300 ease-out md:text-lg`}
     >
       <span className="ease absolute inset-0 flex h-full w-full -translate-x-full items-center justify-center bg-purple-500/80 text-white duration-300 group-hover:translate-x-0">
         <svg

@@ -13,12 +13,12 @@ function Social() {
 
   const inViewMiddle = useIntersectionObserver(containerRefMiddle, {
     threshold: 0.5,
-    rootMargin: "-100px",
+    rootMargin: "100px",
   });
   const shouldTriggerTimeline = inViewMiddle?.isIntersecting || false;
-
+  console.log(shouldTriggerTimeline);
   return (
-    <div className="flex min-h-[70rem] w-full">
+    <div className="flex  w-full">
       <TimelineMiddle shouldTriggerTimeline={shouldTriggerTimeline} />
       <div className="flex-start flex">
         <Image src="/assets/branch.svg" width={80} height={150} alt="som" />
@@ -28,7 +28,7 @@ function Social() {
         ref={containerRefMiddle}
       >
         <Parallax>
-          <div className="px-4 py-8 text-5xl font-semibold tracking-tighter text-black dark:text-white">
+          <div className="px-4 py-8 text-2xl font-semibold  tracking-tighter text-black dark:text-white md:text-3xl lg:text-4xl xl:text-5xl">
             <span className="text-red-500">{social_data.titleAccent}</span>{" "}
             {social_data.titleDescription}
           </div>

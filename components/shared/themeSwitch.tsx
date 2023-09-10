@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Moon } from "lucide-react";
 import { motion } from "framer-motion";
-const modes = ["system", "light", "dark"];
+const modes = ["Auto", "light", "dark"];
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);

@@ -13,12 +13,14 @@ function ParallaxCard({
   onProjectCardClick,
   children,
   containerClasses,
+  backgroundHighlight,
 }: {
   accentColor?: string;
   isSelected?: boolean;
   onProjectCardClick?: () => void;
   children: React.ReactElement;
   containerClasses: string;
+  backgroundHighlight: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -36,15 +38,18 @@ function ParallaxCard({
   function mouseMoveEvent(e: MouseEvent) {
     if (containerRef?.current) {
       const { width, height } = containerRef.current.getBoundingClientRect();
+      console.log(e.offsetX, e.offsetY, e);
       let oldRangeY = width - 0.0;
       let newRangeY = 1.5 - -1.5;
       let newY = ((e.offsetX - 0) * newRangeY) / oldRangeY + -1.5;
       let oldRangeX = height - 0.0;
       let newRangeX = 1 - -1;
       let newX = ((e.offsetY - 0) * newRangeX) / oldRangeX + -1;
-      containerRef.current.style.setProperty("--x1", String(e.offsetX));
-      containerRef.current.style.setProperty("--y1", String(e.offsetY));
-      containerRef.current.style.setProperty("--back1", accentColor || "");
+      if (backgroundHighlight) {
+        containerRef.current.style.setProperty("--x1", String(e.offsetX));
+        containerRef.current.style.setProperty("--y1", String(e.offsetY));
+        containerRef.current.style.setProperty("--back1", accentColor || "");
+      }
       setMouse({
         x: newX,
         y: -newY,
