@@ -11,6 +11,7 @@
   height: 3px;
   bottom: -4px;
   left: 0;
+  opacity: 0;
   background-color: rgba(255, 255, 255, 0.454);
   transform: scaleX(0);
   transition: transform 0.5s ease;
@@ -18,4 +19,5 @@
 
 .link:hover::before {
   transform: scaleX(1);
+  opacity: 1;
 }
