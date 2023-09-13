@@ -28,7 +28,6 @@ const ThemeSwitch = () => {
     const lastTheme = localStorage.getItem("theme");
 
     if (lastTheme) {
-      console.log(modes_list.findIndex((item) => item === lastTheme));
       setCurrentIndex(modes_list.findIndex((item) => item === lastTheme));
     }
   }, []);
