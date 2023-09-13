@@ -83,7 +83,7 @@ function Education() {
                   : "hidden"
               }
               variants={TITLE_VARIANTS}
-              className="-mt-4 mb-4 font-display text-xl font-bold tracking-[0.01em] md:mb-16 md:mt-0 md:text-3xl md:leading-[3rem] lg:text-4xl"
+              className="-mt-8  mb-4 font-display text-xl font-bold tracking-[0.01em] md:mb-16 md:mt-0 md:text-3xl md:leading-[3rem] lg:text-4xl"
             >
               <Balancer>Education</Balancer>
             </motion.div>

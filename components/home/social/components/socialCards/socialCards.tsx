@@ -111,7 +111,6 @@ function SocialCards({
                         className={styles.link}
                         target="_blank"
                         href={card.redirect}
-                        aria-disabled="false"
                       >
                         {card.title}
                       </Link>

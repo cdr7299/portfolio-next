@@ -10,6 +10,8 @@ const work_data: WorkData[] = [
     projects: [
       {
         project_title: "Gan's Landing Pages",
+        link: "https://www.gan.ai",
+        linkHelper: "Gan.ai",
         description:
           "# Gan Studio's landing pages. \n ## ☉ Utilized Framer Motion for intricate animations on homepage \n ## ☉ Mobile And Tab Friendly Layouts",
         tech_used: [
@@ -52,24 +54,26 @@ const work_data: WorkData[] = [
       "at Tekion. Time well spent with a large-scale React SPA, a consumer-facing platform and learning the basics of JS ecosystem.",
     projects: [
       {
-        project_title: "Dealer Management System - F&I",
-        description:
-          "# Was part of the F&I Team at Tekion. \n ## ☉ Exposed to workings of a very large Single Page Application, antd library, pusher notfications. \n ☉ Wrote a scalable system to support an increasing number of wrapped third party APIs for external information providers.",
-        tech_used: [
-          { title: "", icon: "/assets/tech/react1.png" },
-          { title: "", icon: "/assets/tech/redux.png" },
-          { title: "antd", icon: "/assets/tech/antd.png" },
-          { title: "", icon: "/assets/tech/pusher.svg" },
-        ],
-      },
-      {
         project_title: "Digital Retail System",
+        link: "https://drs-kengarff-stage.tekioncloud.xyz/drs/inventory/search",
+        linkHelper: "Tekion's DRS",
         description:
-          "## ☉ Worked as a UI developer with a team responsible for developing Tekion's consumer-facing DRS from scratch which is a platform for shopping cars online and having a zero-contact sales experience.\n ## ☉ Participated in wricng base components to be used applicacon wide by other members of the team. \n ## ☉ DRS is meant to be scalable for various OEMs as they have their own designs and flows, and has abilices to be customizable by a dealership. Worked on integrating customization abilities with the Dealership Management System.",
+          " # DRS Team at Tekion \n ## ☉ UI developer with a team responsible for developing Tekion's consumer-facing DRS, which is a platform for shopping cars online with zero-contact sales experience.\n ## ☉ Participated in writing base components to be used applicacon wide by other members of the team. \n ## ☉ DRS is meant to be scalable for various OEMs as they have their own designs and flows, and can be customized by the dealership. \n ## ☉ Worked on integrating customization abilities with the Dealership Management System.",
         tech_used: [
           { title: "", icon: "/assets/tech/next3.png" },
           { title: "", icon: "/assets/tech/redux.png" },
           { title: "", icon: "/assets/tech/mui.webp" },
+          { title: "", icon: "/assets/tech/pusher.svg" },
+        ],
+      },
+      {
+        project_title: "Dealer Management System - F&I",
+        description:
+          "# F&I Team at Tekion. \n ## ☉ Exposed to workings of a very large Single Page Application, antd library, pusher notfications. \n  ## ☉ Wrote a scalable system to support an increasing number of wrapped third party APIs for external information providers.",
+        tech_used: [
+          { title: "", icon: "/assets/tech/react1.png" },
+          { title: "", icon: "/assets/tech/redux.png" },
+          { title: "antd", icon: "/assets/tech/antd.png" },
           { title: "", icon: "/assets/tech/pusher.svg" },
         ],
       },

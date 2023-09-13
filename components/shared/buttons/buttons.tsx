@@ -1,14 +1,37 @@
 import { ButtonHTMLAttributes } from "react";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  overrideBgColor?: string;
+  overrideBorderColor?: string;
+  overrideFontColor?: string;
+  textBeforeIcon?: string;
+};
 
-function Buttons({ className, children, ...rest }: ButtonProps) {
+function Buttons({
+  className,
+  children,
+  overrideBgColor = "",
+  overrideBorderColor = "",
+  overrideFontColor = "",
+  textBeforeIcon = "",
+  ...rest
+}: ButtonProps) {
   return (
     <button
       {...rest}
-      className={`${className} group relative inline-flex  h-[40px] items-center justify-center overflow-hidden rounded-full border-2 border-purple-500/80 px-8 py-2 text-base font-medium text-indigo-600 shadow-md transition duration-300 ease-out md:h-[50px] md:text-lg`}
+      style={{
+        borderColor: overrideBorderColor,
+        color: overrideFontColor,
+      }}
+      className={`${className} group relative inline-flex  max-h-[40px] items-center justify-center overflow-hidden rounded-full border-2 border-purple-500/80  px-8 py-6 text-base font-medium text-indigo-600 shadow-md transition duration-300 ease-out md:h-[50px] md:text-lg ${overrideBorderColor} ${overrideFontColor}`}
     >
-      <span className="ease absolute inset-0 flex h-full w-full -translate-x-full items-center justify-center bg-purple-500/80 text-white duration-300 group-hover:translate-x-0">
+      <span
+        style={{
+          backgroundColor: overrideBgColor,
+        }}
+        className={`ease absolute inset-0 flex h-full w-full -translate-x-full items-center justify-center bg-purple-500/80 text-white duration-300 group-hover:translate-x-0`}
+      >
+        {textBeforeIcon && <span className="mr-2">{textBeforeIcon}</span>}
         <svg
           className="h-6 w-6"
           fill="none"
@@ -25,7 +48,10 @@ function Buttons({ className, children, ...rest }: ButtonProps) {
         </svg>
       </span>
       <span
-        className={`ease absolute flex h-full w-full transform items-center justify-center  text-purple-500/80 transition-all duration-300 group-hover:translate-x-full `}
+        style={{
+          color: overrideFontColor,
+        }}
+        className={`ease absolute flex h-full w-full transform items-center justify-center text-purple-500/80 transition-all duration-300 group-hover:translate-x-full`}
       >
         {children}
       </span>
