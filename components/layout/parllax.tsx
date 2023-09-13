@@ -53,9 +53,6 @@ const Parallax = ({
   }, [ref]);
 
   // Don't parallax if the user has "reduced motion" enabled
-  if (prefersReducedMotion) {
-    return <>{children}</>;
-  }
 
   return (
     <motion.div ref={ref} style={{ y }}>

@@ -15,10 +15,12 @@ function BrowserBody({
   work_data,
   selectedTab,
   onTabChange,
+  shouldUseReducedMotion,
 }: {
   work_data: WorkData[];
   selectedTab: string;
   onTabChange: (arg: string) => void;
+  shouldUseReducedMotion: boolean;
 }) {
   const { projects } = work_data.find(
     (item: any) => item.value === selectedTab,
@@ -50,7 +52,9 @@ function BrowserBody({
                     <motion.div
                       key={item.title}
                       animate={
-                        selectedTab === item.value && inViewTop?.isIntersecting
+                        shouldUseReducedMotion ||
+                        (selectedTab === item.value &&
+                          inViewTop?.isIntersecting)
                           ? { backgroundColor: item.color }
                           : { backgroundColor: "rgb(22, 27, 34)" }
                       }
@@ -91,7 +95,8 @@ function BrowserBody({
                     custom={inViewTop?.isIntersecting}
                     variants={BODY_VARIANTS}
                     animate={
-                      selectedTab === item.value && inViewTop?.isIntersecting
+                      shouldUseReducedMotion ||
+                      (selectedTab === item.value && inViewTop?.isIntersecting)
                         ? "open"
                         : "closed"
                     }
@@ -132,6 +137,7 @@ function BrowserBody({
                               onProjectCardClick={() => {
                                 setSelectedProjectIndex(index);
                               }}
+                              shouldUseReducedMotion={shouldUseReducedMotion}
                             />
                           ),
                         )}
@@ -150,6 +156,7 @@ function BrowserBody({
           projectTitle={projects[selectedProjectIndex]?.project_title}
           techUsed={projects[selectedProjectIndex]?.tech_used}
           projectDescription={projects[selectedProjectIndex].description}
+          shouldUseReducedMotion={shouldUseReducedMotion}
         />
       </div>
     </div>

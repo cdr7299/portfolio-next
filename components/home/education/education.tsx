@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Balancer from "react-wrap-balancer";
 import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
 import { useRef, useState } from "react";
@@ -17,7 +17,7 @@ import { useProjectsModal } from "./components/projects-modal";
 function Education() {
   const containerRefTop = useRef<HTMLDivElement>(null);
   const containerRefMiddle = useRef<HTMLDivElement>(null);
-
+  const shouldUseReducedMotion = useReducedMotion();
   const inViewTop = useIntersectionObserver(containerRefTop, {
     threshold: 0.3,
   });
@@ -36,18 +36,25 @@ function Education() {
     <div
       className="flex  min-h-[20rem] w-full lg:min-h-[53rem]"
       ref={containerRefTop}
+      id="startTimeline"
     >
       <ProjectsModal />
       <Timeline
-        shouldTriggerTimeline={shouldTriggerTimeline}
-        isParentInView={inViewTop?.isIntersecting || false}
+        shouldTriggerTimeline={shouldUseReducedMotion || shouldTriggerTimeline}
+        isParentInView={
+          shouldUseReducedMotion || inViewTop?.isIntersecting || false
+        }
       />
       <div className="flex w-5/6 flex-col gap-16 md:ml-6">
-        <Parallax offset={PARLLAX_OFFSET_DOWN}>
+        <Parallax offset={shouldUseReducedMotion ? 0 : PARLLAX_OFFSET_DOWN}>
           <div className="w-full font-display text-xl font-bold tracking-[0.01em] drop-shadow-sm md:text-2xl md:leading-[3rem] lg:text-4xl">
             <motion.div
               initial="hidden"
-              animate={inViewTop?.isIntersecting ? "visible" : "hidden"}
+              animate={
+                shouldUseReducedMotion || inViewTop?.isIntersecting
+                  ? "visible"
+                  : "hidden"
+              }
               className="h-[250px] lg:h-[350px]"
               variants={INTRO_CARD_VARIANTS}
             >
@@ -66,11 +73,15 @@ function Education() {
             </motion.div>
           </div>
         </Parallax>
-        <Parallax offset={PARLLAX_OFFSET_UP}>
+        <Parallax offset={shouldUseReducedMotion ? 0 : PARLLAX_OFFSET_UP}>
           <div ref={containerRefMiddle}>
             <motion.div
               initial="hidden"
-              animate={shouldTriggerTimeline ? "visible" : "hidden"}
+              animate={
+                shouldUseReducedMotion || shouldTriggerTimeline
+                  ? "visible"
+                  : "hidden"
+              }
               variants={TITLE_VARIANTS}
               className="-mt-4 mb-4 font-display text-xl font-bold tracking-[0.01em] md:mb-16 md:mt-0 md:text-3xl md:leading-[3rem] lg:text-4xl"
             >
@@ -85,7 +96,7 @@ function Education() {
                     description={card_item.description}
                     projects={card_item.projects}
                     title={card_item.title}
-                    isRendered={shouldTriggerTimeline}
+                    isRendered={shouldUseReducedMotion || shouldTriggerTimeline}
                     setShowProjectsModal={setShowProjectsModal}
                     setSelectedProjectList={setSelectedProjectList}
                   ></Card>

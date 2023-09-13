@@ -31,7 +31,6 @@ const ThemeSwitch = () => {
 
   const setNextTheme = () => {
     const currentThemeIndex = modes_list.findIndex((item) => item === theme);
-    console.log(currentThemeIndex, (currentThemeIndex + 1) % modes_list.length);
     setTheme(modes_list[(currentThemeIndex + 1) % modes_list.length]);
   };
   return (
