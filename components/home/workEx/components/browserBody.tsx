@@ -22,9 +22,9 @@ function BrowserBody({
   onTabChange: (arg: string) => void;
   shouldUseReducedMotion: boolean;
 }) {
-  const { projects } = work_data.find(
+  const { projects, color } = work_data.find(
     (item: any) => item.value === selectedTab,
-  ) || { projects: [] };
+  ) || { projects: [], color: "#fff" };
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const inViewTop = useIntersectionObserver(containerRef, {
@@ -157,6 +157,9 @@ function BrowserBody({
           techUsed={projects[selectedProjectIndex]?.tech_used}
           projectDescription={projects[selectedProjectIndex].description}
           shouldUseReducedMotion={shouldUseReducedMotion}
+          link={projects[selectedProjectIndex]?.link}
+          accentColor={color}
+          linkHelper={projects[selectedProjectIndex]?.linkHelper}
         />
       </div>
     </div>
