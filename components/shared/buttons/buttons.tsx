@@ -1,10 +1,11 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   overrideBgColor?: string;
   overrideBorderColor?: string;
   overrideFontColor?: string;
   textBeforeIcon?: string;
+  customIcon?: ReactNode;
 };
 
 function Buttons({
@@ -14,6 +15,7 @@ function Buttons({
   overrideBorderColor = "",
   overrideFontColor = "",
   textBeforeIcon = "",
+  customIcon = undefined,
   ...rest
 }: ButtonProps) {
   return (
@@ -32,20 +34,22 @@ function Buttons({
         className={`ease absolute inset-0 flex h-full w-full -translate-x-full items-center justify-center bg-purple-500/80 text-white duration-300 group-hover:translate-x-0`}
       >
         {textBeforeIcon && <span className="mr-2">{textBeforeIcon}</span>}
-        <svg
-          className="h-6 w-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M14 5l7 7m0 0l-7 7m7-7H3"
-          ></path>
-        </svg>
+        {customIcon || (
+          <svg
+            className="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
+            ></path>
+          </svg>
+        )}
       </span>
       <span
         style={{

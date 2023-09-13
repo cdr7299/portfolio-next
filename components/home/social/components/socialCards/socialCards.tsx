@@ -71,19 +71,19 @@ function SocialCards({
     <motion.div
       initial="hidden"
       animate={isContainerInView ? "visible" : "hidden"}
-      className="mt-16 flex w-full flex-col justify-around gap-4 md:flex-row md:gap-8 md:px-16"
+      className="flex w-full flex-col justify-around gap-4 md:flex-col md:gap-16 md:px-8"
       variants={base_container}
     >
       {columns.map((col: Column[], index) => {
         return (
           <motion.div
-            className="h-[15rem] md:h-[32rem] md:w-[35%]"
+            className="h-[15rem]"
             key={col[0].title + index}
             variants={card_container}
           >
             <ParallaxCard
               accentColor="#A0A1DC"
-              containerClasses="rounded !border-[0] dark:!border-[0.15rem] dark:!border-[#30363d] !bg-red-700/40 dark:!bg-[#161b22] shadow-lg shadow-red-900/50 dark:shadow-[0] !gap-8 bg-slate-800 p-4 md:px-8 md:!py-16 items-center justify-around"
+              containerClasses="rounded !border-[0] dark:!border-[0.15rem] dark:!border-[#30363d] !bg-red-700/40 dark:!bg-[#161b22] shadow-lg shadow-red-900/50 dark:shadow-[0] !gap-8 bg-slate-800 p-4 md:px-8 md:!py-16 md:!flex-row items-center justify-around"
               backgroundHighlight={false}
             >
               <>
@@ -96,7 +96,7 @@ function SocialCards({
                         backgroundColor: card.accentColor,
                         color: card.fontColor,
                       }}
-                      className={`relative z-10 flex h-full w-full cursor-pointer items-center justify-center rounded-xl px-6 py-2 text-center text-2xl font-bold text-slate-800 shadow-lg  shadow-gray-900/70 md:h-[150px] md:w-[280px] `}
+                      className={`relative z-10 flex h-full w-full cursor-pointer items-center justify-center rounded-xl px-6 py-2 text-center text-2xl font-bold text-slate-800 shadow-lg  shadow-gray-900/70 md:h-[160px] md:w-[40%] `}
                     >
                       {card.icon && (
                         <Image

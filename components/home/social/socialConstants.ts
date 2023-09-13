@@ -15,10 +15,10 @@ export const social_data: SocialData = {
           fontColor: "#fff",
         },
         {
-          accentColor: "#76e4dda2",
-          title: "facebook",
+          accentColor: "#1014dda2",
+          title: "See this project on Github",
           native: true,
-          redirect: "",
+          redirect: "https://github.com/cdr7299/portfolio-next",
           fontColor: "#fff",
         },
       ],
