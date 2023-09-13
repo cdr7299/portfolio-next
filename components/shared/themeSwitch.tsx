@@ -25,6 +25,12 @@ const ThemeSwitch = () => {
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true);
+    const lastTheme = localStorage.getItem("theme");
+
+    if (lastTheme) {
+      console.log(modes_list.findIndex((item) => item === lastTheme));
+      setCurrentIndex(modes_list.findIndex((item) => item === lastTheme));
+    }
   }, []);
 
   useEffect(() => {

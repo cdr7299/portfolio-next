@@ -23,7 +23,7 @@ const work_data: WorkData[] = [
       {
         project_title: "Myna",
         description:
-          "# Myna - Gan Studio's SaaS platform. \n ## ☉ Myna is Gan.ai’s SaaS tool which enables users to record/upload their videos and then create personalized copies of such a video and deliver them to their customers. \n ## ☉ Worked with the MediaRecorder and MediaStream API to allow video recording on the platform. \n ## ☉ Revamped the existing workflows with a new theme and UX. \n ## ☉ Wrote base components over MUI (Styling library).Stack - React, TypeScript, Redux, MUI, Tailwind",
+          "# Myna - Gan Studio's SaaS platform. \n ## ☉ Myna is Gan.ai’s SaaS tool which enables users to record/upload their videos and then create personalized copies of such a video and deliver them to their customers. \n ## ☉ Worked with the MediaRecorder and MediaStream API to allow video recording on the platform. \n ## ☉ Revamped the existing workflows with a new theme and UX. \n ## ☉ Wrote base components over MUI (Styling library).",
         tech_used: [
           { title: "", icon: "/assets/tech/react1.png" },
           { title: "", icon: "/assets/tech/redux.png" },
