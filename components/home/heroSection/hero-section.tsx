@@ -38,7 +38,7 @@ function HeroSection() {
     });
   };
   return (
-    <div className="mx-2 flex h-[calc(100vh-8rem)] w-full flex-col items-center justify-center text-left md:mx-0">
+    <div className="flex h-[calc(100vh-8rem)] w-full flex-col items-center justify-center px-2 text-left md:mx-0">
       {isHovering && <div className={styles.overlay}></div>}
       <AnimatePresence>
         {isHovering && (
