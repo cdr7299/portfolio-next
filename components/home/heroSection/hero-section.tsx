@@ -33,7 +33,7 @@ function HeroSection() {
     e.preventDefault();
     const elem = document.getElementById("startTimeline");
     window.scrollTo({
-      top: elem?.getBoundingClientRect().top,
+      top: Number(elem?.getBoundingClientRect().top) - 500,
       behavior: "smooth",
     });
   };

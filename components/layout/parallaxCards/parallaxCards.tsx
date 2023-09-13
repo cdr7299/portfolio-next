@@ -38,7 +38,6 @@ function ParallaxCard({
   function mouseMoveEvent(e: MouseEvent) {
     if (containerRef?.current) {
       const { width, height } = containerRef.current.getBoundingClientRect();
-      console.log(e.offsetX, e.offsetY, e);
       let oldRangeY = width - 0.0;
       let newRangeY = 1.5 - -1.5;
       let newY = ((e.offsetX - 0) * newRangeY) / oldRangeY + -1.5;

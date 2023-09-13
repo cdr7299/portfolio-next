@@ -1,5 +1,4 @@
 import "./globals.css";
-// import { Analytics } from "@vercel/analytics/react";
 import cx from "classnames";
 import { sfPro, inter } from "./fonts";
 import Footer from "@/components/layout/footer";
@@ -27,7 +26,7 @@ export default async function RootLayout({
             {/* @ts-expect-error Server Component */}
             <Nav />
           </Suspense>
-          <main className="flex min-h-screen w-full flex-col items-center justify-center pb-4 pt-16">
+          <main className="flex min-h-screen w-full flex-col items-center justify-center  pt-16">
             {children}
           </main>
           <Footer />

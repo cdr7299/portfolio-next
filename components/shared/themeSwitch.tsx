@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Moon } from "lucide-react";
 import { motion } from "framer-motion";
@@ -20,28 +20,26 @@ const modes_vs_labels = {
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
-  const [index, setCurrentIndex] = useState(0);
 
-  // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  useEffect(() => {
-    setTheme(modes_list[index]);
-  }, [index]);
 
   if (!mounted) {
     return null;
   }
 
+  const setNextTheme = () => {
+    const currentThemeIndex = modes_list.findIndex((item) => item === theme);
+    setTheme(modes_list[(currentThemeIndex + 1) % modes_list.length]);
+  };
   return (
     <motion.button
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       className="mr-3 rounded-full border border-gray-300 bg-transparent bg-white px-5 py-2 text-sm text-gray-600 shadow-md  transition-colors dark:bg-black  dark:text-white"
-      onClick={() => setCurrentIndex((prev) => (prev + 1) % modes_list.length)}
+      onClick={() => setNextTheme()}
     >
       <span className="flex items-center gap-2">
         {modes_vs_labels[theme || ""]} mode

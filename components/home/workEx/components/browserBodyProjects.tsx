@@ -40,20 +40,22 @@ function BrowserBodyProjects({
   techUsed,
   shouldAnimate,
   projectDescription,
+  shouldUseReducedMotion,
 }: {
   projectTitle: Project["project_title"];
   techUsed: Project["tech_used"];
   shouldAnimate: boolean;
   projectDescription: Project["description"];
+  shouldUseReducedMotion: boolean;
 }) {
   return (
-    <Parallax offset={PARLLAX_OFFSET_DOWN / 4}>
+    <Parallax offset={shouldUseReducedMotion ? 0 : PARLLAX_OFFSET_DOWN / 4}>
       <motion.div
         key={projectTitle}
         className="m-4 flex h-full flex-col gap-8 text-white"
         variants={project_section_variants}
         initial="hidden"
-        animate={shouldAnimate ? "visible" : "hidden"}
+        animate={shouldUseReducedMotion || shouldAnimate ? "visible" : "hidden"}
         exit="hidden"
         layout
         layoutId="test123213"
