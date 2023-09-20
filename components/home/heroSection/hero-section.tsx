@@ -2,11 +2,11 @@
 import { Heart } from "lucide-react";
 import { AnimatePresence, Variants, motion } from "framer-motion";
 import { useState } from "react";
-import styles from "./styles.module.css";
 import cx from "classnames";
 import Balancer from "react-wrap-balancer";
 import Image from "next/image";
 import Buttons from "@/components/shared/buttons/buttons";
+import styles from "./styles.module.css";
 
 const heartVariants: Variants = {
   hover: {
@@ -38,7 +38,7 @@ function HeroSection() {
     });
   };
   return (
-    <div className="flex h-[calc(100vh-8rem)] w-full flex-col items-center justify-center px-2 text-left md:mx-0">
+    <div className="mt-24 flex h-[calc(100vh-8rem)] w-full flex-col items-center justify-center px-2 text-left md:mx-0">
       {isHovering && <div className={styles.overlay}></div>}
       <AnimatePresence>
         {isHovering && (

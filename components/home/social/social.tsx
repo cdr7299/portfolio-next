@@ -1,13 +1,16 @@
 "use client";
 import Image from "next/image";
-import TimelineMiddle from "./components/timeline";
-import SocialCards from "./components/socialCards/socialCards";
 import { useRef } from "react";
-import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
-import Parallax from "@/components/layout/parllax";
-import { social_data } from "./socialConstants";
 import { useReducedMotion } from "framer-motion";
 import Balancer from "react-wrap-balancer";
+import { MessageCircleIcon } from "lucide-react";
+import Buttons from "@/components/shared/buttons/buttons";
+import Parallax from "@/components/layout/parllax";
+import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
+import { social_data } from "./socialConstants";
+import SocialCards from "./components/socialCards/socialCards";
+import TimelineMiddle from "./components/timeline";
+import { useGetInTouchModal } from "./components/getInTouch/getInTouch";
 function Social() {
   const containerRefMiddle = useRef<HTMLDivElement>(null);
 
@@ -36,7 +39,8 @@ function Social() {
   //     </div>
   //   );
   // };
-  // const [test, setTest] = useState(false);
+
+  const { GetInTouchModal, setGetInTouchModal } = useGetInTouchModal();
 
   return (
     <div className="flex min-h-[50rem] w-full">
@@ -59,25 +63,17 @@ function Social() {
             isContainerInView={shouldTriggerTimeline}
             cardData={social_data.cardData}
           />
-          {/* <motion.div
-            layout
-            className="self-center"
-            initial={{ y: 0 }}
-            animate={!test ? { y: 0 } : { y: -600 }}
-            transition={{ layout: { duration: 0.3 }, y: { duration: 0.3 } }}
+
+          <Buttons
+            onClick={() => setGetInTouchModal((prev) => !prev)}
+            customIcon={<MessageCircleIcon />}
+            className="!w-fit self-center"
           >
-            {!test && (
-              <Buttons
-                onClick={() => setTest((test) => !test)}
-                customIcon={<MessageCircleIcon />}
-              >
-                Get in Touch
-              </Buttons>
-            )}
-            {test && getBigDiv()}
-          </motion.div> */}
+            Get in Touch
+          </Buttons>
         </div>
       </Parallax>
+      <GetInTouchModal />
     </div>
   );
 }

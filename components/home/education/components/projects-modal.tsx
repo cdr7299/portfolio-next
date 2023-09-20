@@ -1,4 +1,3 @@
-import Modal from "@/components/shared/modal";
 import {
   useState,
   Dispatch,
@@ -6,6 +5,7 @@ import {
   useCallback,
   useMemo,
 } from "react";
+import Modal from "@/components/shared/modal";
 import { EducationProject } from "../education.types";
 
 const ProjectsModal = ({
@@ -25,9 +25,9 @@ const ProjectsModal = ({
           {selectedProjectList?.map((project) => {
             return (
               <div key={project.title}>
-                <button className="font-display text-4xl font-bold text-gray-800">
+                <div className="font-display text-4xl font-bold text-gray-800">
                   {project.title}
-                </button>
+                </div>
 
                 <p className="mt-2 text-xl text-gray-500">
                   {project.description}
