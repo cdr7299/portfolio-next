@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { useReducedMotion } from "framer-motion";
 import Balancer from "react-wrap-balancer";
-import { MessageCircleIcon } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import Buttons from "@/components/shared/buttons/buttons";
 import Parallax from "@/components/layout/parllax";
 import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
@@ -66,7 +66,7 @@ function Social() {
 
           <Buttons
             onClick={() => setGetInTouchModal((prev) => !prev)}
-            customIcon={<MessageCircleIcon />}
+            customIcon={<MessageCircle />}
             className="!w-fit self-center"
           >
             Get in Touch

@@ -43,7 +43,7 @@ const section_timeline_variants: Variants = {
 };
 const section_timeline_variants2: Variants = {
   visible: {
-    height: 660,
+    height: 772,
     transition: {
       delay: 0.3,
       duration: EDUCATION_ANIMATION_DURATION,
@@ -89,7 +89,6 @@ function TimelineMiddle({
         />
       </motion.div>
       <motion.div
-        // animate={shouldTriggerTimeline ? { height: 400 } : ""}
         initial="hidden"
         animate={shouldTriggerTimeline ? "visible" : "hidden"}
         exit="hidden"

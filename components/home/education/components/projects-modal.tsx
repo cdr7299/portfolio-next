@@ -25,9 +25,10 @@ const ProjectsModal = ({
           {selectedProjectList?.map((project) => {
             return (
               <div key={project.title}>
-                <div className="font-display text-4xl font-bold text-gray-800">
+                {/* TODO : remove button add focus trap */}
+                <button className="font-display text-4xl font-bold text-gray-800">
                   {project.title}
-                </div>
+                </button>
 
                 <p className="mt-2 text-xl text-gray-500">
                   {project.description}
