@@ -1,8 +1,8 @@
 "use client";
 
-import styles from "./parallaxCards.module.css";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import styles from "./parallaxCards.module.css";
 
 const normalShadow = "0px 10px 30px -5px rgba(0, 0, 0, 0.3)";
 const liftShadow = "0px 30px 30px -5px rgba(0, 0, 0, 0.3)";

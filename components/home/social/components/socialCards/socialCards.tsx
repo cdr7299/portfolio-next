@@ -1,9 +1,9 @@
 import { Variants, motion } from "framer-motion";
-import { CardData, Column } from "../../social.types";
-import ParallaxCard from "@/components/layout/parallaxCards/parallaxCards";
 import Link from "next/link";
-import styles from "./socialCards.module.css";
 import Image from "next/image";
+import ParallaxCard from "@/components/layout/parallaxCards/parallaxCards";
+import styles from "./socialCards.module.css";
+import { CardData, Column } from "../../social.types";
 const base_container: Variants = {
   visible: {
     transition: {

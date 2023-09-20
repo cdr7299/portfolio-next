@@ -1,10 +1,10 @@
 import { Variants, motion, useAnimate } from "framer-motion";
 import Balancer from "react-wrap-balancer";
+import { useEffect } from "react";
 import {
   EDUCATION_ANIMATION_DURATION,
   EXIT_ANIMATION_DELAY,
 } from "./home.constants";
-import { useEffect } from "react";
 import { EducationData } from "./education/education.types";
 import Buttons from "../shared/buttons/buttons";
 
