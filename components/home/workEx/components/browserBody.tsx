@@ -19,7 +19,7 @@ function BrowserBody({
 }: {
   work_data: WorkData[];
   selectedTab: string;
-  onTabChange: (arg: string) => void;
+  onTabChange: (_arg: string) => void;
   shouldUseReducedMotion: boolean;
 }) {
   const { projects, color } = work_data.find(
@@ -137,7 +137,6 @@ function BrowserBody({
                               onProjectCardClick={() => {
                                 setSelectedProjectIndex(index);
                               }}
-                              shouldUseReducedMotion={shouldUseReducedMotion}
                             />
                           ),
                         )}

@@ -11,13 +11,11 @@ function BrowserBodyCards({
   accentColor,
   isSelected,
   onProjectCardClick,
-  shouldUseReducedMotion,
 }: {
   projectTitle: string;
   accentColor: string;
   isSelected: boolean;
   onProjectCardClick: () => void;
-  shouldUseReducedMotion: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
