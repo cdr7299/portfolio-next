@@ -1,7 +1,7 @@
-import styles from "./styles.module.css";
 import Balancer from "react-wrap-balancer";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import styles from "./styles.module.css";
 
 const normalShadow = "0px 10px 30px -5px rgba(0, 0, 0, 0.3)";
 const liftShadow = "0px 30px 30px -5px rgba(0, 0, 0, 0.3)";
@@ -11,13 +11,11 @@ function BrowserBodyCards({
   accentColor,
   isSelected,
   onProjectCardClick,
-  shouldUseReducedMotion,
 }: {
   projectTitle: string;
   accentColor: string;
   isSelected: boolean;
   onProjectCardClick: () => void;
-  shouldUseReducedMotion: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 

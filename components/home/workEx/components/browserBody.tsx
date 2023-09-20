@@ -1,13 +1,13 @@
-import styles from "./styles.module.css";
 import * as Tabs from "@radix-ui/react-tabs";
 import cx from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
-import BrowserBodyCards from "./browserBodyCards";
-import { BODY_VARIANTS } from "./browser.animations";
 import Balancer from "react-wrap-balancer";
-import BrowserBodyProjects from "./browserBodyProjects";
 import React, { useRef, useState } from "react";
 import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
+import BrowserBodyCards from "./browserBodyCards";
+import { BODY_VARIANTS } from "./browser.animations";
+import BrowserBodyProjects from "./browserBodyProjects";
+import styles from "./styles.module.css";
 import { BROWSER_ANIMATION_DURATION } from "../../home.constants";
 import { WorkData } from "../workEx.types";
 
@@ -19,7 +19,7 @@ function BrowserBody({
 }: {
   work_data: WorkData[];
   selectedTab: string;
-  onTabChange: (arg: string) => void;
+  onTabChange: (_arg: string) => void;
   shouldUseReducedMotion: boolean;
 }) {
   const { projects, color } = work_data.find(
@@ -137,7 +137,6 @@ function BrowserBody({
                               onProjectCardClick={() => {
                                 setSelectedProjectIndex(index);
                               }}
-                              shouldUseReducedMotion={shouldUseReducedMotion}
                             />
                           ),
                         )}

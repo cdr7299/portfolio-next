@@ -2,17 +2,17 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Balancer from "react-wrap-balancer";
-import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
 import { useRef, useState } from "react";
-import Timeline from "./components/timeline";
-import Card from "../card";
-import { PARLLAX_OFFSET_DOWN, PARLLAX_OFFSET_UP } from "../home.constants";
-import { EDUCATION_DATA } from "./education.constants";
-import { INTRO_CARD_VARIANTS, TITLE_VARIANTS } from "./education.anim";
+import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
 import Parallax from "@/components/layout/parllax";
 import ParallaxCard from "@/components/layout/parallaxCards/parallaxCards";
+import { EDUCATION_DATA } from "./education.constants";
+import { INTRO_CARD_VARIANTS, TITLE_VARIANTS } from "./education.anim";
+import Timeline from "./components/timeline";
 import { EducationData, EducationProject } from "./education.types";
 import { useProjectsModal } from "./components/projects-modal";
+import { PARLLAX_OFFSET_DOWN, PARLLAX_OFFSET_UP } from "../home.constants";
+import Card from "../card";
 
 function Education() {
   const containerRefTop = useRef<HTMLDivElement>(null);

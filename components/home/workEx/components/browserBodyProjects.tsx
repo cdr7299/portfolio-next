@@ -1,16 +1,16 @@
 import { Variants, motion } from "framer-motion";
+import Balancer from "react-wrap-balancer";
+import Image from "next/image";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import Link from "next/link";
+import { LayoutGroup } from "framer-motion";
+import Buttons from "@/components/shared/buttons/buttons";
+import Parallax from "@/components/layout/parllax";
+import { Project, WorkData } from "../workEx.types";
 import {
   BROWSER_ANIMATION_DURATION,
   PARLLAX_OFFSET_DOWN,
 } from "../../home.constants";
-import Balancer from "react-wrap-balancer";
-import Parallax from "@/components/layout/parllax";
-import Image from "next/image";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { Project, WorkData } from "../workEx.types";
-import Link from "next/link";
-import Buttons from "@/components/shared/buttons/buttons";
-import { LayoutGroup } from "framer-motion";
 
 const project_section_variants: Variants = {
   visible: {

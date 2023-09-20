@@ -1,9 +1,9 @@
 import "./globals.css";
 import cx from "classnames";
-import { sfPro, inter } from "./fonts";
-import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
+import Footer from "@/components/layout/footer";
 import Nav from "@/components/layout/nav";
+import { sfPro, inter } from "./fonts";
 import { Providers } from "./providers";
 
 export const metadata = {

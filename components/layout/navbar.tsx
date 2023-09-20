@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import useScroll from "@/lib/hooks/use-scroll";
 import { Session } from "next-auth";
+import useScroll from "@/lib/hooks/use-scroll";
 import ThemeSwitch from "../shared/themeSwitch";
 
 export default function NavBar({ session }: { session: Session | null }) {

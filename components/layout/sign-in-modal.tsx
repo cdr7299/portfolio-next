@@ -1,4 +1,3 @@
-import Modal from "@/components/shared/modal";
 import {
   useState,
   Dispatch,
@@ -6,8 +5,9 @@ import {
   useCallback,
   useMemo,
 } from "react";
-import { LoadingDots } from "@/components/shared/icons";
 import Image from "next/image";
+import Modal from "@/components/shared/modal";
+import { LoadingDots } from "@/components/shared/icons";
 
 const SignInModal = ({
   showSignInModal,

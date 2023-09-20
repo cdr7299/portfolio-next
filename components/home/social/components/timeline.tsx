@@ -2,12 +2,12 @@
 
 import { motion, Variants } from "framer-motion";
 import { Share2 } from "lucide-react";
+import { useTheme } from "next-themes";
 import styles from "./timeline.module.css";
 import {
   EDUCATION_ANIMATION_DURATION,
   EXIT_ANIMATION_DELAY_TIMELINE,
 } from "../../home.constants";
-import { useTheme } from "next-themes";
 
 const icon_timeline_variants: Variants = {
   visible: {
