@@ -2,20 +2,42 @@ import { NextResponse } from "next/server";
 import prisma from "../../../lib/prisma";
 
 export async function POST(req: Request) {
-  const res = await req.json();
+  const body = await req.json();
   try {
-    const result = await prisma.message.create({
+    const result: any = await prisma.message.create({
       data: {
-        name: res.name,
-        email: res.email,
-        message: res.message,
-        phone: res.phone,
+        name: body.name,
+        email: body.email,
+        message: body.message,
+        phone: body.phone,
       },
     });
-    console.log("all ok", result);
     return NextResponse.json(result);
-  } catch (err) {
-    console.log("all not ok", err);
-    return err;
+  } catch (err: any) {
+    console.log("Error Code", err.code, err.message);
+    switch (err.code) {
+      case "P2002":
+        return new NextResponse(
+          JSON.stringify({
+            error: "Duplicate Key",
+            statusCode: err.code,
+            message: err.message,
+          }),
+          {
+            status: 500,
+          },
+        );
+      default:
+        return new NextResponse(
+          JSON.stringify({
+            error: "Missing field attributes",
+            statusCode: err.code,
+            message: err.message,
+          }),
+          {
+            status: 500,
+          },
+        );
+    }
   }
 }
