@@ -12,6 +12,6 @@ model Message {
   id      String  @id @default(cuid())
   name    String
   phone   String?
-  email   String  @unique
+  email   String
   message String
 }
