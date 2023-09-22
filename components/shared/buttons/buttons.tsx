@@ -25,7 +25,7 @@ function Buttons({
         borderColor: overrideBorderColor,
         color: overrideFontColor,
       }}
-      className={`${className} group relative inline-flex  max-h-[40px] items-center justify-center overflow-hidden rounded-full border-2 border-purple-500/80  px-8 py-6 text-base font-medium text-indigo-600 shadow-md transition duration-300 ease-out md:h-[50px] md:text-lg ${overrideBorderColor} ${overrideFontColor}`}
+      className={`${className} group relative inline-flex max-h-[40px]  items-center justify-center overflow-hidden rounded-full border-2 border-purple-500/80 px-8  py-6 text-base font-medium text-indigo-600 shadow-md transition duration-300 ease-out disabled:cursor-not-allowed md:h-[50px] md:text-lg ${overrideBorderColor} ${overrideFontColor}`}
     >
       <span
         style={{
