@@ -11,7 +11,8 @@ export const social_data: SocialData = {
           accentColor: "#1ba0f144",
           title: "Download Resume",
           native: true,
-          redirect: "",
+          redirect:
+            "https://drive.google.com/file/d/1PhuBc57gHYCxsZ6EOKWP1trFBJ3tuTJQ/view?usp=drive_link",
           fontColor: "#fff",
         },
         {
