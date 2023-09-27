@@ -12,7 +12,7 @@ export const social_data: SocialData = {
           title: "Download Resume",
           native: true,
           redirect:
-            "https://drive.google.com/file/d/18iRmKxkamtjL79eU96YmKKvFScwbUoJZ/view?usp=drive_link",
+            "https://drive.google.com/file/d/17xMKWXCo_yO5SEndLysOcSBm4SYHhfdY/view?usp=drive_link",
           fontColor: "#fff",
         },
         {
