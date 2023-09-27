@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 import { useController, UseControllerProps, useForm } from "react-hook-form";
 import * as Toast from "@radix-ui/react-toast";
 
-import { Check, InfoIcon, Loader, Mail, X } from "lucide-react";
+import { Check, Loader, Mail, X, Info } from "lucide-react";
 import cx from "classnames";
 import Modal from "@/components/shared/modal";
 import Buttons from "@/components/shared/buttons/buttons";
@@ -179,8 +179,8 @@ const GetInTouchModal = ({
           open={open}
           onOpenChange={setOpen}
         >
-          <Toast.Title className="text-slate12 flex items-center text-[0.7rem] font-medium [grid-area:_title]">
-            <InfoIcon className="mr-2 text-sm" size={15} />
+          <Toast.Title className="flex items-center text-[0.7rem] font-medium text-slate-700 [grid-area:_title]">
+            <Info className="mr-2 text-sm" size={15} />
             Info
           </Toast.Title>
           <Toast.Description className="text-black">
@@ -191,7 +191,7 @@ const GetInTouchModal = ({
             asChild
             altText="Goto schedule to undo"
           >
-            <button className="bg-green2 text-green11 shadow-green7 hover:shadow-green8 focus:shadow-green8 inline-flex h-[25px] items-center justify-center rounded px-[10px] text-xs font-medium leading-[25px] shadow-[inset_0_0_0_1px] hover:shadow-[inset_0_0_0_1px] focus:shadow-[0_0_0_2px]">
+            <button className="inline-flex h-[25px] items-center justify-center rounded border-0 bg-emerald-500 p-4 text-xs font-medium leading-[25px] hover:bg-emerald-600">
               <Check />
             </button>
           </Toast.Action>
