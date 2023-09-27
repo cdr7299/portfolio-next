@@ -1,6 +1,7 @@
 import { Variants, motion, useAnimate } from "framer-motion";
 import Balancer from "react-wrap-balancer";
 import { useEffect } from "react";
+import { BriefcaseIcon } from "lucide-react";
 import {
   EDUCATION_ANIMATION_DURATION,
   EXIT_ANIMATION_DELAY,
@@ -98,6 +99,7 @@ export default function Card({
             {projects.length ? (
               <Buttons
                 className="mt-2"
+                customIcon={<BriefcaseIcon />}
                 onClick={() => {
                   setShowProjectsModal(true);
                   setSelectedProjectList(projects);
