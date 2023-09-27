@@ -55,7 +55,7 @@ const work_data: WorkData[] = [
     projects: [
       {
         project_title: "Digital Retail System",
-        link: "https://drs-kengarff-stage.tekioncloud.xyz/drs/inventory/search",
+        link: "https://drs.hyundaiofgilroy.com/drs/inventory/search?annualMiles=12000&downPayment=5000&maxPayment=5000&minPayment=100&paymentType=LOAN&terms=72&vehicleType=NEW",
         linkHelper: "Tekion's DRS",
         description:
           " # DRS Team at Tekion \n ## ☉ UI developer with a team responsible for developing Tekion's consumer-facing DRS, which is a platform for shopping cars online with zero-contact sales experience.\n ## ☉ Participated in writing base components to be used applicacon wide by other members of the team. \n ## ☉ DRS is meant to be scalable for various OEMs as they have their own designs and flows, and can be customized by the dealership. \n ## ☉ Worked on integrating customization abilities with the Dealership Management System.",
