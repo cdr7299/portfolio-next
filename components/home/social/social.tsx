@@ -7,7 +7,7 @@ import { MessageCircle } from "lucide-react";
 import Buttons from "@/components/shared/buttons/buttons";
 import Parallax from "@/components/layout/parllax";
 import useIntersectionObserver from "@/lib/hooks/use-intersection-observer";
-import { social_data } from "./socialConstants";
+import { social_data } from "./social.constants";
 import SocialCards from "./components/socialCards/socialCards";
 import TimelineMiddle from "./components/timeline";
 import { useGetInTouchModal } from "./components/getInTouch/getInTouch";
@@ -16,29 +16,11 @@ function Social() {
 
   const inViewMiddle = useIntersectionObserver(containerRefMiddle, {
     threshold: 0.5,
-    // rootMargin: "100px",
   });
   const shouldUseReducedMotion = useReducedMotion();
 
   const shouldTriggerTimeline =
     shouldUseReducedMotion || inViewMiddle?.isIntersecting || false;
-
-  // const getBigDiv = () => {
-  //   return (
-  //     <div className=" z-100 flex h-[600px] w-[1000px] flex-col items-center justify-start rounded-3xl bg-neutral-300 p-4">
-  //       <button
-  //         onClick={() => setTest((test) => !test)}
-  //         className="self-end"
-  //         // customIcon={<MessageCircleIcon />}
-  //       >
-  //         <X style={{ color: "gray" }} />
-  //       </button>
-  //       <div className="flex h-full items-center text-xl font-bold text-slate-900">
-  //         Coming Soon!
-  //       </div>
-  //     </div>
-  //   );
-  // };
 
   const { GetInTouchModal, setGetInTouchModal } = useGetInTouchModal();
 
