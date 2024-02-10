@@ -1,5 +1,5 @@
 "use client";
-import { Heart } from "lucide-react";
+import { Code2 } from "lucide-react";
 import { AnimatePresence, Variants, motion } from "framer-motion";
 import { useState } from "react";
 import cx from "classnames";
@@ -82,10 +82,9 @@ function HeroSection() {
         style={{ animationDelay: "1s", animationFillMode: "forwards" }}
       >
         i{" "}
-        <motion.div className="mx-4" variants={heartVariants} animate="hover">
-          <Heart
-            fill="rgb(225 29 72)"
-            className=" inline w-full text-rose-600"
+        <div className="mx-4">
+          <Code2
+            className=" inline w-full text-slate-500"
             onMouseEnter={() => {
               setIsHovering(true);
             }}
@@ -94,7 +93,7 @@ function HeroSection() {
             }}
             size={35}
           />
-        </motion.div>
+        </div>
         <Image
           priority
           src={"/assets/tech/js.png"}
