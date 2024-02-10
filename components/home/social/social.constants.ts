@@ -1,9 +1,9 @@
 import { SocialData } from "./social.types";
 
 export const social_data: SocialData = {
-  titleAccent: "This site serves as my portfolio",
+  titleAccent: "I love talking about React, Javascript and OSS software.",
   titleDescription:
-    "but is also a playground for my react/next/framer experiments. Check out my social and github!",
+    "I sometimes go overboard with Framer as it's such an amazing tool!",
   cardData: {
     columns: [
       [
