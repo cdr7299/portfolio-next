@@ -148,6 +148,7 @@ const GetInTouchModal = ({
               )
             }
             type="submit"
+            disabled
             className={cx(`mt-4 w-[40%] self-center`)}
           >
             {isSubmitLoading && (
