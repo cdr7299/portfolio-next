@@ -1,11 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Session } from "next-auth";
 import useScroll from "@/lib/hooks/use-scroll";
 import ThemeSwitch from "../shared/themeSwitch";
 
-export default function NavBar({ session }: { session: Session | null }) {
+export default function NavBar() {
   const scrolled = useScroll(50);
 
   return (
@@ -27,23 +26,6 @@ export default function NavBar({ session }: { session: Session | null }) {
           </Link>
           <div className="flex items-center">
             <ThemeSwitch />
-
-            {/* {session ? (
-              <UserDropdown session={session} />
-            ) : (
-              <button
-                className="ml-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-600 shadow-md transition-colors hover:border-gray-800 hover:bg-black hover:text-white dark:bg-black dark:text-white"
-                onClick={() => setShowSignInModal(true)}
-              >
-                Get in touch
-              </button>
-            )} */}
-            {/* <button
-              className="ml-2 space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm text-gray-600 shadow-md transition-colors hover:border-gray-800 hover:bg-black hover:text-white"
-              onClick={() => setShowSignInModal(true)}
-            >
-              Blog
-            </button> */}
           </div>
         </div>
       </div>

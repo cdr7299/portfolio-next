@@ -8,8 +8,8 @@ const base_container: Variants = {
   visible: {
     transition: {
       duration: 0.5,
-      staggerChildren: 0.7,
-      delayChildren: 0.7,
+      staggerChildren: 0.4,
+      delayChildren: 0.3,
     },
   },
   hidden: {
@@ -21,7 +21,7 @@ const card_container: Variants = {
   visible: {
     x: 0,
     opacity: 1,
-    transition: { duration: 0.5, staggerChildren: 0.3, delayChildren: 0 },
+    transition: { duration: 0.5, staggerChildren: 0.2, delayChildren: 0 },
   },
   hidden: {
     x: -100,
@@ -77,13 +77,13 @@ function SocialCards({
       {columns.map((col: Column[], index) => {
         return (
           <motion.div
-            className="h-[15rem]"
+            className=""
             key={col[0].title + index}
             variants={card_container}
           >
             <ParallaxCard
               accentColor="#A0A1DC"
-              containerClasses="rounded !border-[0] dark:!border-[0.15rem] dark:!border-[#30363d] !bg-red-700/40 dark:!bg-[#161b22] shadow-lg shadow-red-900/50 dark:shadow-[0] !gap-8 bg-slate-800 p-4 md:px-8 md:!py-16 md:!flex-row items-center justify-around"
+              containerClasses="rounded py-8 !border-[0] dark:!border-[0.15rem] dark:!border-[#30363d] !bg-red-700/40 dark:!bg-[#161b22] shadow-lg shadow-red-900/50 dark:shadow-[0] !gap-8 bg-slate-800 p-4 md:px-8 md:!py-16 md:!flex-row !h-fit items-center justify-around"
               backgroundHighlight={false}
             >
               <>
@@ -96,7 +96,7 @@ function SocialCards({
                         backgroundColor: card.accentColor,
                         color: card.fontColor,
                       }}
-                      className={`relative z-10 flex h-full w-full cursor-pointer items-center justify-center rounded-xl px-6 py-2 text-center text-2xl font-bold text-slate-800 shadow-lg  shadow-gray-900/70 md:h-[160px] md:w-[40%] `}
+                      className={`relative z-10 flex h-full w-full cursor-pointer items-center justify-center rounded-xl p-6 text-center text-xl font-bold text-slate-800 shadow-lg shadow-gray-900/70  md:h-[160px] md:w-[40%] md:text-2xl `}
                     >
                       {card.icon && (
                         <Image

@@ -33,7 +33,7 @@ function Social() {
         className="my-8 flex w-full flex-col gap-8 rounded-2xl md:gap-16"
         ref={containerRefMiddle}
       >
-        <div className="p-4 text-2xl font-semibold  tracking-[-0.05rem]  text-black dark:text-white md:px-8 md:pt-8  md:text-3xl lg:text-4xl xl:text-5xl">
+        <div className="p-4 text-2xl font-semibold  tracking-[-0.05rem]  text-black dark:text-white md:px-8 md:pt-8 md:text-2xl lg:text-3xl xl:text-4xl">
           <Balancer ratio={0.5}>
             <span className="text-red-600">{social_data.titleAccent}</span>{" "}
             {social_data.titleDescription}
