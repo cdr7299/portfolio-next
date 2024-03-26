@@ -30,7 +30,7 @@ function Social() {
         <Image src="/assets/branch.svg" width={80} height={150} alt="som" />
       </div>
       <div
-        className="my-8 flex w-full flex-col gap-8 rounded-2xl md:gap-16"
+        className="mt-8 flex w-full flex-col gap-8 rounded-2xl md:gap-12"
         ref={containerRefMiddle}
       >
         <div className="p-4 text-2xl font-semibold  tracking-[-0.05rem]  text-black dark:text-white md:px-8 md:pt-8 md:text-2xl lg:text-3xl xl:text-4xl">
